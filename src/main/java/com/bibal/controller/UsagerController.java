@@ -32,7 +32,12 @@ public class UsagerController {
 		return "ListeUsagers";
 	}
 
-	@RequestMapping("/addUsager")
+	@RequestMapping(value = "/addUsagerForm", method = RequestMethod.GET)
+	public String getFormCreationUsager() {
+		return "createUserForm";
+	}
+
+	@RequestMapping(value = "/addUsager", method = RequestMethod.POST)
 	public String ajouterUsager(@RequestParam("prenom") String prenom, @RequestParam("nom") String nom,
 			@RequestParam("adresse") String adresse, @RequestParam("mail") String mail,
 			@RequestParam("tel") String tel) {

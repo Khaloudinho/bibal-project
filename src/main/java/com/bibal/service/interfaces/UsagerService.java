@@ -5,7 +5,7 @@ import java.util.List;
 import com.bibal.metier.Usager;
 
 public interface UsagerService {
-	
+
 	public void addUsager(String nom, String prenom, String adresse, String mail, String tel);
 	public List<Usager> findAll();
 	public Usager getById(Long idUsager);
