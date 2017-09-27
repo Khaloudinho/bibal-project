@@ -45,10 +45,17 @@ public class UsagerController {
 		return "redirect:ListeUsagers";
 	}
 
-	@RequestMapping("/updateUsager")
-	public String updateUsager(@RequestParam("Id0") String id, @RequestParam("Prenom0") String prenom,
-			@RequestParam("Nom0") String nom, @RequestParam("Adresse0") String adresse,
-			@RequestParam("Mail0") String mail, @RequestParam("Telephone0") String tel) {
+	@RequestMapping(value = "/updateUsagerForm", method = RequestMethod.GET)
+	public String getFormUpdateUsager(Long idUsager, Model model) {
+		Usager usager = usagerService.getById(idUsager);
+		model.addAttribute("usager", usager);
+		return "updateUserForm";
+	}
+
+	@RequestMapping(value = "/updateUsager", method = RequestMethod.PUT)
+	public String updateUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
+			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
+			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
 		usagerService.update(Long.valueOf(id), nom, prenom, adresse, tel, mail);
 		return "redirect:ListeUsagers";
 	}
