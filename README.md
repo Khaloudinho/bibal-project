@@ -1,25 +1,24 @@
 # Bibal
-## Etudiants - M2 MIAGE SID
+## Students - M2 MIAGE SID
 * BERTRAND Guillaume
 * BOUGUETTOUCHA Khaled
 
-# Principe du projet
+# Project 
 BibalSpringMVC is a library manager web app
 
-## Prérequis
+## Prerequisites
 
-## Procédure d'installation
+## Installation
 
-## Outils logiciels utilisés
-* intellij IDE Ultimate
+## Used tools
+* Intellij IDEA Ultimate
 * Spring Boot 1.5.1
 * Maven
-* SGBD : Mysql 5.7.18
-
+* SGBD : MySQL 5.7.18
 
 ## Tests
 
-## Utilisation via l'IDE
+## Using IDE
 
 ## Built With
 
