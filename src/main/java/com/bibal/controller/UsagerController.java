@@ -60,6 +60,12 @@ public class UsagerController {
 		return "redirect:ListeUsagers";
 	}
 
+	@RequestMapping(value = "/deleteUsager", method = RequestMethod.DELETE)
+	public String deleteUsager(Long idUsager) {
+		usagerService.supprimmerUsager(idUsager);
+		return "redirect:ListeUsagers";
+	}
+
 	@RequestMapping(value = "/searchUsagerByName", method = RequestMethod.GET)
 	public String searchUsagerByName(@RequestParam("nom") String nom, Model model) {
 		List<Usager> usagers = usagerService.searchByName(nom);

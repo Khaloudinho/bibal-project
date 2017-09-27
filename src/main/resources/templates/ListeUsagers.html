@@ -66,7 +66,8 @@
 											</form>
 										</td>
 										<td>
-											<form th:action="@{/deleteUsager}" method="delete">
+											<form th:action="@{/deleteUsager}" th:method="delete">
+												<input type="hidden" name="idUsager" th:value="${u.idUsager}"></input>
 												<div class="field">
 													<div class="control">
 														<button class="button is-black" type="submit">Supprimer</button>

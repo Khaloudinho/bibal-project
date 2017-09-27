@@ -61,6 +61,11 @@ public class UsagerServiceImpl implements UsagerService {
 	}
 
 	@Override
+	public void supprimmerUsager(Long idUsager) {
+		usagerRepository.deleteUsagerById(idUsager);
+	}
+
+	@Override
 	public Usager update(Long idUsager, String nom, String prenom, String adresse, String tel, String mail) {
 		Usager usager = getById(idUsager);
 		usager.setNom(nom);
