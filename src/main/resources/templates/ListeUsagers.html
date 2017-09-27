@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="template">
+<html>
 <head>
 <meta charset="UTF-8" />
 <title>Usagers</title>
@@ -10,17 +8,6 @@
 <link rel="stylesheet" type="text/css"
 	th:href="@{//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css}"
 	href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
-<script
-	th:src="@{//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js}"
-	src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js">
-	
-</script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#datatable').dataTable();
-	});
-</script>
 
 <script type="text/javascript">
 	$(".btn[data-target='#update']")
@@ -56,7 +43,7 @@
 		$('form[name="modalForm"]').submit();
 	});
 </script>
-
+	<script type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></script>
 </head>
 <body>
 	<section layout:fragment="custom-content">
@@ -67,15 +54,11 @@
 					<b>Gestion des usagers</b>
 				</div>
 				<div class="panel-body">
-
 					<form th:action="@{/allUsagers}" method="get">
 
-						<button type="button" style="float: right;"
-							class="btn btn-lg btn-success left-rounded" data-toggle="modal"
-							data-target="#add">
-							<span class="glyphicon glyphicon-plus"></span> Nouveau Usager
-						</button>
-
+						<div class="control">
+							<button class="button is-primary">Nouvel usager</button>
+						</div>
 
 						<div id="usagerDataTable" class="col-sm-24" align="center">
 							<table id="datatable"
@@ -288,51 +271,6 @@
 		</div>
 		<script
 			th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js}"></script>
-		<script
-			src="@{http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-
-		<script type="text/javascript">
-			function getIdUsager(idUsager){
-				document.getElementsByName("idUsager")[0].value = idUsager;
-			}
-		</script>
-
-		<script>
-			$(".update[data-target='#update']")
-					.click(
-							function() {
-								var columnHeadings = $("thead th").map(
-										function() {
-											return $(this).text();
-										}).get();
-								columnHeadings.pop();
-								var columnValues = $(this).parent().siblings()
-										.map(function() {
-											return $(this).text();
-										}).get();
-								var modalBody = $('<div id="modalContent"></div>');
-								var modalForm = $('<form role="form" name="updateForm" th:action="@{/updateUsager}" method="post"></form>');
-								$
-										.each(
-												columnHeadings,
-												function(i, columnHeader) {
-													var formGroup = $('<div class="form-group"></div>');
-													formGroup
-															.append('<label for="'+columnHeader+'">'
-																	+ columnHeader
-																	+ '</label>');
-													formGroup
-															.append('<input class="form-control" name="'+columnHeader+'0" id="'+columnHeader+'0" value="'+columnValues[i]+'" />');
-													modalForm.append(formGroup);
-												});
-								modalBody.append(modalForm);
-								$('.modal-body.update').html(modalBody);
-							});
-			$('.modal-footer.update .btn-success').click(function() {
-				$('form[name="updateForm"]').submit();
-			});
-		</script>
-
 	</section>
 </body>
 </html>
