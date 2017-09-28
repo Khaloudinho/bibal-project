@@ -85,11 +85,4 @@ public class UsagerController {
 		model.addAttribute("allUsagers", usagers);
 		return "ListeUsagers";
 	}
-	
-	@GetMapping("/activer")
-	public String activer(Long idUsager) {
-		usagerService.activer(idUsager);
-		return "redirect:/ListeUsagers";
-	}
-
 }

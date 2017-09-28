@@ -12,9 +12,6 @@ public interface UsagerService {
 	public Usager getById(Long idUsager);
 	public List<Usager> searchByName(String nom);
 	public void activer(Long idUsager);
-	public Usager suspendre(Long idUsager);
-	public Usager enAttenteDeCotisation(Long idUsager);
 	public Usager update(Long idUsager, String nom, String prenom, String adresse, String tel, String mail);
-	public List<Usager> getUsagersByEtat(String etat);
-	
+
 }
