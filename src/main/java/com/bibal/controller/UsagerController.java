@@ -52,7 +52,7 @@ public class UsagerController {
 		return "updateUserForm";
 	}
 
-	@RequestMapping(value = "/updateUsager", method = RequestMethod.PUT)
+	@RequestMapping(value = "/usager", method = RequestMethod.PUT)
 	public String updateUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
 			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
 			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
@@ -60,7 +60,7 @@ public class UsagerController {
 		return "redirect:ListeUsagers";
 	}
 
-	@RequestMapping(value = "/deleteUsager", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/usager", method = RequestMethod.DELETE)
 	public String deleteUsager(Long idUsager) {
 		usagerService.supprimmerUsager(idUsager);
 		return "redirect:ListeUsagers";

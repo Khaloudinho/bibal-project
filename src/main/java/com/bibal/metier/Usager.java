@@ -20,10 +20,10 @@ public class Usager implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8071716128487923877L;
+	//private static final long serialVersionUID = -8071716128487923877L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idUsager;
 	private String nom;
 	private String prenom;	
@@ -32,14 +32,14 @@ public class Usager implements Serializable{
 	private String tel;
 	private int nombreSuspensions;
 	private String etat;
-	
-	@OneToMany
+
+	/*@OneToMany
 	@JoinColumn(name="idUsager",referencedColumnName="idUsager")
 	private List<Reservation> listReservations;
-	
+
 	@OneToMany
 	@JoinColumn(name="idUsager", referencedColumnName="idUsager")
-	private List<Emprunt> listEmprunts;
+	private List<Emprunt> listEmprunts;*/
 	
 	public Usager() {
 		super();
@@ -102,13 +102,13 @@ public class Usager implements Serializable{
 		this.tel = tel;
 	}
 	
-	public List<Emprunt> getListEmprunts() {
+	/*public List<Emprunt> getListEmprunts() {
 		return listEmprunts;
 	}
 	
 	public List<Reservation> getListReservations() {
 		return listReservations;
-	}
+	}*/
 	
 	public String getAdresse() {
 		return adresse;

@@ -27,7 +27,6 @@
 										<th>Adresse</th>
 										<th>Mail</th>
 										<th>Telephone</th>
-										<th>Action</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
 									</tr>
@@ -41,20 +40,6 @@
 										<td style="text-align: center" th:text="${u.adresse}"></td>
 										<td style="text-align: center" th:text="${u.mail}"></td>
 										<td style="text-align: center" th:text="${u.tel}"></td>
-										<td style="text-align: center">
-
-											<button th:if="${u.etat}!='Client'" type="button"
-													class="btn btn-success" data-toggle="modal"
-													data-target="#activerUsager"
-													th:onclick="|getIdUsager(${u.idUsager})|">
-												<span class="glyphicon glyphicon-ok"></span>
-											</button>
-
-											<button type="button" class="btn btn-warning update"
-													data-toggle="modal" data-target="#update">
-												<span class="glyphicon glyphicon-edit"></span>
-											</button>
-										</td>
 										<td>
 											<form th:action="@{/updateUsagerForm}" method="get">
 												<input type="hidden" name="idUsager" th:value="${u.idUsager}"></input>
@@ -66,7 +51,7 @@
 											</form>
 										</td>
 										<td>
-											<form th:action="@{/deleteUsager}" th:method="delete">
+											<form th:action="@{/usager}" th:method="delete">
 												<input type="hidden" name="idUsager" th:value="${u.idUsager}"></input>
 												<div class="field">
 													<div class="control">

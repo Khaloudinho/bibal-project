@@ -9,7 +9,7 @@
 <section>
     <div class="container">
         <p class="title">Mise à jour de l'usager <span th:text="${usager.nom}"></span> <span th:text="${usager.prenom}"></span></p>
-        <form th:action="@{/updateUsager}" th:method="put">
+        <form th:action="@{/usager}" th:method="put">
             <input type="hidden" name="id" th:value="${usager.idUsager}"></input>
             <div class="field">
                 <label class="label">Prénom</label>
