@@ -16,6 +16,8 @@ public class Oeuvre implements Serializable {
 	private String auteur;
 	private String genre;
 
+	public Oeuvre() {}
+
 	public Oeuvre(String titre, String auteur, String genre) {
 		this.titre = titre;
 		this.auteur = auteur;

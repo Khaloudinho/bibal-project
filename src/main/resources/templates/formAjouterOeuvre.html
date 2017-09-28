@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Création d'une oeuvre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
 <body>
+<section>
+    <div class="container">
+        <p class="title">Création d'une oeuvre</p>
+        <form th:action="@{/ajouterOeuvre}" th:method="post">
+            <div class="field">
+                <label class="label">Titre</label>
+                <div class="control">
+                    <input class="input" type="text" name="titre" placeholder="Les Fourberies de Scapin" />
+                </div>
+            </div>
 
+            <div class="field">
+                <label class="label">Auteur</label>
+                <div class="control">
+                    <input class="input" type="text" name="auteur" placeholder="Molière" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Genre</label>
+                <div class="control">
+                    <input class="input" type="text" name="genre" placeholder="Pièce de théâtre" />
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Valider</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 </body>
 </html>
