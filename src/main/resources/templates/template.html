@@ -6,32 +6,9 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>template</title>
-	
-	<link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.min.css}" href="/css/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" th:href="@{/css/bootstrap/css/bootstrap.css}" href="/css/bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Cookie}" href="https://fonts.googleapis.com/css?family=Cookie" />
-	<link rel="stylesheet" th:href="@{/css/myCss.css}" href="/css/myCss.css" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-select.css}" href="/css/bootstrap-select.css" />
-	<!-- 
-	<link rel="stylesheet" type="text/css" th:href="@{https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css}" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
-	<script type="text/javascript" th:src="@{https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js}" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
-	<script th:src="@{/js/jquery-1.12.4.js}" src="/js/jquery-1.12.4.js"></script>
-	 -->
-	
-	<script type="text/javascript" th:src="@{//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js}" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-	<link rel="stylesheet" th:href="@{/css/dataTables.bootstrap.min.css}" href="/css/dataTables.bootstrap.min.css" />
-	<script th:src="@{/js/jquery.js}" src="/js/jquery.js"></script>
-	<script th:src="@{/css/bootstrap/js/bootstrap.min.js}" src="/css/bootstrap/js/bootstrap.min.js"></script>
-	<script th:src="@{/js/jquery.dataTables.min.js}" src="/js/jquery.dataTables.min.js"></script>
-	<script th:src="@{/js/dataTables.bootstrap.min.js}" src="/js/dataTables.bootstrap.min.js"></script>	
-	<script th:src="@{/js/bootstrap-select.js}" src="/js/bootstrap-select.js"></script>	
-	
-	
 </head>
-
 <body>
 	<header>
-		<img class="img-responsive" th:src="@{/images/library-header.jpg}" />
 		<nav class="navbar navbar-default custom-header">
 			<div class="container">
 				<div class="navbar-header">
@@ -80,15 +57,12 @@
 		</nav>
 	</header>
 	<section layout:fragment="custom-content" style="min-height: 300px">
-		<p>CONTENT</p>
 	</section>
 	<footer class="footer">
 		<div>
 			<p></p>
 		</div>
 	</footer>
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
