@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Mise à jour de l'oeuvre</title>
@@ -9,7 +9,8 @@
 <section>
     <div class="container">
         <p class="title">Mise à jour de l'oeuvre <span th:text="${oeuvre.titre}"></span></p>
-        <form th:action="@{'/modifierOeuvre/' + ${oeuvre.idOeuvre}}" th:method="put">
+        <form th:action="@{/modifierOeuvre}" th:method="put">
+            <input type="hidden" name="id" th:value="${oeuvre.idOeuvre}"></input>
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
 <head>
     <meta charset="UTF-8" />
     <title>Oeuvres</title>
@@ -10,7 +12,7 @@
     <div class="container">
         <p class="title">Gestion des oeuvres</p>
         <form th:action="@{/getFormAjouterOeuvre}" th:method="get">
-            <div class="field">
+            <div class="field" style="margin-bottom: 2.5%">
                 <div class="control">
                     <button class="button is-primary">Ajouter une nouvelle oeuvre</button>
                 </div>
@@ -42,7 +44,8 @@
                         </form>
                     </td>
                     <td>
-                        <form th:action="@{'/supprimerOeuvre/' + ${o.idOeuvre}}" th:method="delete">
+                        <form th:action="@{/supprimerOeuvre}" th:method="delete">
+                            <input type="hidden" name="id" th:value="${o.idOeuvre}"></input>
                             <div class="field">
                                 <div class="control">
                                     <button class="button is-black" type="submit">Supprimer</button>
