@@ -24,7 +24,7 @@ public class OeuvreController {
     @GetMapping(value = "/oeuvres")
     public String recupererToutesLesOeuvres(Model model) {
         List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
-        model.addAttribute("allOeuvres", oeuvres);
+        model.addAttribute("oeuvres", oeuvres);
         return "oeuvres";
     }
 
@@ -41,7 +41,7 @@ public class OeuvreController {
     }
 
     @GetMapping(value = "/getFormModifierOeuvre/{id}")
-    public String getFormModifierOeuvre(@RequestParam("id") Long idOeuvre, Model model) {
+    public String getFormModifierOeuvre(@PathVariable(value = "id") Long idOeuvre, Model model) {
         Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
         model.addAttribute("oeuvre", oeuvre);
         return "formModifierOeuvre";
@@ -54,12 +54,12 @@ public class OeuvreController {
     }
 
     @PutMapping(value = "/modifierOeuvre/{id}")
-    public String modifierOeuvre(@RequestParam("id") String idOeuvre, @RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("genre") String genre) {
+    public String modifierOeuvre(@PathVariable("id") String idOeuvre, @RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("genre") String genre) {
         oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, genre);
         return "redirect:oeuvres";
     }
 
-    @DeleteMapping(value = "/oeuvre/{id}")
+    @DeleteMapping(value = "/supprimerOeuvre/{id}")
     public String supprimerOeuvre(@RequestParam("id") Long idOeuvre) {
         oeuvreService.supprimerOeuvre(idOeuvre);
         return "redirect:oeuvres";

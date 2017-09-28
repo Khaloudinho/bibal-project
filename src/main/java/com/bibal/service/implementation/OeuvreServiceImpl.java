@@ -19,13 +19,11 @@ public class OeuvreServiceImpl implements OeuvreService {
 	@Override
 	public List<Oeuvre> recupererToutesLesOeuvres() {
 	    return oeuvreRepository.findAll();
-        //recupererToutesLesOeuvres();
 	}
 
 	@Override
 	public Oeuvre recupererOeuvreViaID(Long idOeuvre) {
-		return oeuvreRepository.getOne(idOeuvre);
-        //recupererOeuvreViaID(idOeuvre);
+		return oeuvreRepository.findOne(idOeuvre);
 	}
 
 	@Override
@@ -42,7 +40,6 @@ public class OeuvreServiceImpl implements OeuvreService {
 	@Override
 	public void supprimerOeuvre(Long idOeuvre) {
 	    oeuvreRepository.delete(idOeuvre);
-        //supprimerOeuvreViaID(idOeuvre);
 	}
 
 	@Override

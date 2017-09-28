@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Mise à jour de l'oeuvre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
 <body>
+<section>
+    <div class="container">
+        <p class="title">Mise à jour de l'oeuvre <span th:text="${oeuvre.titre}"></span></p>
+        <form th:action="@{'/modifierOeuvre/' + ${oeuvre.idOeuvre}}" th:method="put">
+            <div class="field">
+                <label class="label">Titre</label>
+                <div class="control">
+                    <input class="input" type="text" name="titre" th:value="${oeuvre.titre}" />
+                </div>
+            </div>
 
+            <div class="field">
+                <label class="label">Auteur</label>
+                <div class="control">
+                    <input class="input" type="text" name="auteur" th:value="${oeuvre.auteur}" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Genre</label>
+                <div class="control">
+                    <input class="input" type="text" name="genre" th:value="${oeuvre.genre}" />
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-danger">Modifier</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 </body>
 </html>
