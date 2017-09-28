@@ -52,3 +52,4 @@ atlassian-ide-plugin.xml
 *.properties
 mvnw.cmd
 mvnw
+work.json

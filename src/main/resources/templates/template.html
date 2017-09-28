@@ -9,48 +9,68 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-default custom-header">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand navbar-link" th:href="@{/index}"> Bibal</a>
+
+		<nav class="navbar is-transparent">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="http://bulma.io">
+					<img th:src="@{/images/logo.png}" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+				</a>
+
+				<a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
+      <span class="icon" style="color: #333;">
+        <i class="fa fa-lg fa-github"></i>
+      </span>
+				</a>
+
+				<a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-lg fa-twitter"></i>
+      </span>
+				</a>
+
+				<div class="navbar-burger burger" data-target="navMenuTransparentExample">
+					<span></span>
+					<span></span>
+					<span></span>
 				</div>
-				<div class="collapse navbar-collapse" id="navbar-collapse">
-					<div class="collapse navbar-collapse" id="navbar-collapse">
-						<ul class="nav navbar-nav navbar-right links">
-							<li role="presentation"><a href="index" th:href="@{/index}"><span
-									class="glyphicon glyphicon-home"></span><strong>
-										Accueil</strong></a></li>
-							<li role="presentation"><a href="ListeUsagers"
-								th:href="@{/ListeUsagers}"><span
-									class="glyphicon glyphicon-user"></span><strong>
-										Usagers</strong></a></li>
-							<li role="presentation"><a href="Livres"
-								th:href="@{/Livres}"><span class="glyphicon glyphicon-book"></span><strong>
-										Livres</strong></a></li>
-							<li role="presentation"><a href="Magazines"
-								th:href="@{/Magazines}"><span
-									class="glyphicon glyphicon-file"></span><strong>
-										Magazines</strong></a></li>
-							<li role="presentation"><a href="Emprunts"
-								th:href="@{/Emprunts}"><span
-									class="glyphicon glyphicon-transfer"></span><strong>
-										Emprunts</strong></a></li>
-							<li role="presentation"><a href="Reservations"
-								th:href="@{/Reservations}"><span
-									class="glyphicon glyphicon-tasks"></span><strong>
-										Réservations</strong></a></li>
-							<li role="presentation"><a href="About"
-								th:href="@{/About}"><span
-									class="glyphicon glyphicon-info-sign"></span><strong>
-										About</strong></a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right"></ul>
+			</div>
+
+			<div id="navMenuTransparentExample" class="navbar-menu">
+				<div class="navbar-start">
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link  is-active" href="/documentation/overview/start/">
+							Docs
+						</a>
+					</div>
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link " href="http://bulma.io/blog/">
+							Blog
+						</a>
+					</div>
+				</div>
+
+				<div class="navbar-end">
+					<a class="navbar-item is-hidden-desktop-only" href="https://github.com/jgthms/bulma" target="_blank">
+        <span class="icon" style="color: #333;">
+          <i class="fa fa-lg fa-github"></i>
+        </span>
+					</a>
+					<a class="navbar-item is-hidden-desktop-only" href="https://twitter.com/jgthms" target="_blank">
+        <span class="icon" style="color: #55acee;">
+          <i class="fa fa-lg fa-twitter"></i>
+        </span>
+					</a>
+					<div class="navbar-item">
+						<div class="field is-grouped">
+							<p class="control">
+								<a class="button is-primary" href="https://github.com/jgthms/bulma/archive/0.5.3.zip">
+              <span class="icon">
+                <i class="fa fa-download"></i>
+              </span>
+									<span>Download</span>
+								</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
