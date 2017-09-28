@@ -25,11 +25,11 @@ public class UsagerController {
 	@Autowired
 	private UsagerService usagerService;
 
-	@RequestMapping("/ListeUsagers")
+	@RequestMapping("/usagers")
 	public String ListeUsagers(Model model) {
 		List<Usager> usagers = usagerService.findAll();
 		model.addAttribute("allUsagers", usagers);
-		return "ListeUsagers";
+		return "usagers";
 	}
 
 	@RequestMapping(value = "/addUsagerForm", method = RequestMethod.GET)
@@ -42,7 +42,7 @@ public class UsagerController {
 			@RequestParam("adresse") String adresse, @RequestParam("mail") String mail,
 			@RequestParam("tel") String tel) {
 		usagerService.addUsager(nom, prenom, adresse, mail, tel);
-		return "redirect:ListeUsagers";
+		return "redirect:usagers";
 	}
 
 	@RequestMapping(value = "/updateUsagerForm", method = RequestMethod.GET)
@@ -57,13 +57,13 @@ public class UsagerController {
 			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
 			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
 		usagerService.update(Long.valueOf(id), nom, prenom, adresse, tel, mail);
-		return "redirect:ListeUsagers";
+		return "redirect:usagers";
 	}
 
 	@RequestMapping(value = "/usager", method = RequestMethod.DELETE)
 	public String deleteUsager(Long idUsager) {
 		usagerService.supprimmerUsager(idUsager);
-		return "redirect:ListeUsagers";
+		return "redirect:usagers";
 	}
 
 	@RequestMapping(value = "/searchUsagerByName", method = RequestMethod.GET)
