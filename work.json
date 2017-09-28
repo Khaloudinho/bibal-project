@@ -1,0 +1,31 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+<a class="navbar-brand navbar-link" th:href="@{/index}"> Bibal</a>
+</div>
+<div class="navbar-menu">
+<div class="" >
+<ul class="">
+<li class="navbar-item"><a href="index" th:href="@{/index}"><strong>
+Accueil</strong></a></li>
+<li class="navbar-item"><a href="ListeUsagers"
+th:href="@{/ListeUsagers}"><strong>
+Usagers</strong></a></li>
+<li class="navbar-item"><a href="Livres"
+th:href="@{/Livres}"></a></li>
+<li class="navbar-item"><a href="Magazines"
+th:href="@{/Magazines}"><strong>
+Magazines</strong></a></li>
+<li class="navbar-item"><a href="Emprunts"
+th:href="@{/Emprunts}"><strong>
+Emprunts</strong></a></li>
+<li class="navbar-item"><a href="Reservations"
+th:href="@{/Reservations}"><strong>
+Réservations</strong></a></li>
+<li class="navbar-item"><a href="About"
+th:href="@{/About}"><strong>
+About</strong></a></li>
+</ul>
+<ul></ul>
+</div>
+</div>
+</nav>
