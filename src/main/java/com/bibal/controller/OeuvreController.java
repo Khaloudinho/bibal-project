@@ -53,13 +53,13 @@ public class OeuvreController {
         return "redirect:oeuvres";
     }
 
-    @RequestMapping(value = "/modifierOeuvre", method = RequestMethod.PUT)
+    @PutMapping(value = "/modifierOeuvre")
     public String modifierOeuvre(@RequestParam("id") String idOeuvre, @RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("genre") String genre) {
         oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, genre);
         return "redirect:oeuvres";
     }
 
-    @RequestMapping(value = "/supprimerOeuvre", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/supprimerOeuvre")
     public String supprimerOeuvre(@RequestParam("id") Long idOeuvre) {
         oeuvreService.supprimerOeuvre(idOeuvre);
         return "redirect:oeuvres";
