@@ -8,10 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.bibal.metier.Usager;
 import com.bibal.service.interfaces.UsagerService;
@@ -25,19 +22,19 @@ public class UsagerController {
 	@Autowired
 	private UsagerService usagerService;
 
-	@RequestMapping("/usagers")
+	@GetMapping("/usagers")
 	public String ListeUsagers(Model model) {
 		List<Usager> usagers = usagerService.findAll();
 		model.addAttribute("allUsagers", usagers);
 		return "usagers";
 	}
 
-	@RequestMapping(value = "/addUsagerForm", method = RequestMethod.GET)
+	@GetMapping(value = "/addUsagerForm")
 	public String getFormCreationUsager() {
 		return "createUserForm";
 	}
 
-	@RequestMapping(value = "/addUsager", method = RequestMethod.POST)
+	@PostMapping(value = "/addUsager")
 	public String ajouterUsager(@RequestParam("prenom") String prenom, @RequestParam("nom") String nom,
 			@RequestParam("adresse") String adresse, @RequestParam("mail") String mail,
 			@RequestParam("tel") String tel) {
@@ -45,14 +42,14 @@ public class UsagerController {
 		return "redirect:usagers";
 	}
 
-	@RequestMapping(value = "/updateUsagerForm", method = RequestMethod.GET)
+	@GetMapping(value = "/updateUsagerForm")
 	public String getFormUpdateUsager(Long idUsager, Model model) {
 		Usager usager = usagerService.getById(idUsager);
 		model.addAttribute("usager", usager);
 		return "updateUserForm";
 	}
 
-	@RequestMapping(value = "/usager", method = RequestMethod.PUT)
+	@PutMapping(value = "/usager")
 	public String updateUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
 			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
 			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
@@ -60,26 +57,26 @@ public class UsagerController {
 		return "redirect:usagers";
 	}
 
-	@RequestMapping(value = "/usager", method = RequestMethod.DELETE)
+	@DeleteMapping(value = "/usager")
 	public String deleteUsager(Long idUsager) {
 		usagerService.supprimmerUsager(idUsager);
 		return "redirect:usagers";
 	}
 
-	@RequestMapping(value = "/searchUsagerByName", method = RequestMethod.GET)
+	@GetMapping(value = "/searchUsagerByName")
 	public String searchUsagerByName(@RequestParam("nom") String nom, Model model) {
 		List<Usager> usagers = usagerService.searchByName(nom);
 		model.addAttribute("usagers", usagers);
 		return "ListeUsagers";
 	}
 
-	@RequestMapping("/searchUsager")
+	@GetMapping("/searchUsager")
 	public String SearchUsager(Model model) {
 		model.addAttribute("usagers", null);
 		return "ListeUsagers";
 	}
 
-	@RequestMapping("/allUsagers")
+	@GetMapping("/allUsagers")
 	public String allUsagers(Model model) {
 		List<Usager> usagers = usagerService.findAll();
 		model.addAttribute("allUsagers", usagers);
