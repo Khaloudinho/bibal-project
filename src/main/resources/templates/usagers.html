@@ -43,8 +43,7 @@
 										<td style="text-align: center" th:text="${u.mail}"></td>
 										<td style="text-align: center" th:text="${u.tel}"></td>
 										<td>
-											<form th:action="@{/updateUsagerForm}" method="get">
-												<input type="hidden" name="idUsager" th:value="${u.idUsager}"></input>
+											<form th:action="@{'/usagers/'+ ${u.idUsager}+'/edit'}" method="get">
 												<div class="field">
 													<div class="control">
 														<button class="button is-danger" type="submit">Modifier</button>

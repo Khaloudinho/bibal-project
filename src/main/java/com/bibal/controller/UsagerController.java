@@ -23,7 +23,7 @@ public class UsagerController {
 	private UsagerService usagerService;
 
 	@GetMapping("/usagers")
-	public String ListeUsagers(Model model) {
+	public String recupererToutesLesUsagers(Model model) {
 		List<Usager> usagers = usagerService.findAll();
 		model.addAttribute("allUsagers", usagers);
 		return "usagers";
@@ -42,15 +42,15 @@ public class UsagerController {
 		return "redirect:usagers";
 	}
 
-	@GetMapping(value = "/updateUsagerForm")
-	public String getFormUpdateUsager(Long idUsager, Model model) {
+	@GetMapping(value = "/usagers/{id}/edit")
+	public String getFormModifierUsager(@PathVariable(value = "id") Long idUsager, Model model) {
 		Usager usager = usagerService.getById(idUsager);
 		model.addAttribute("usager", usager);
 		return "updateUserForm";
 	}
 
 	@PutMapping(value = "/usager")
-	public String updateUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
+	public String modifierUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
 			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
 			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
 		usagerService.update(Long.valueOf(id), nom, prenom, adresse, tel, mail);
@@ -58,28 +58,8 @@ public class UsagerController {
 	}
 
 	@DeleteMapping(value = "/usager")
-	public String deleteUsager(Long idUsager) {
+	public String supprimerUsager(Long idUsager) {
 		usagerService.supprimmerUsager(idUsager);
 		return "redirect:usagers";
-	}
-
-	@GetMapping(value = "/searchUsagerByName")
-	public String searchUsagerByName(@RequestParam("nom") String nom, Model model) {
-		List<Usager> usagers = usagerService.searchByName(nom);
-		model.addAttribute("usagers", usagers);
-		return "ListeUsagers";
-	}
-
-	@GetMapping("/searchUsager")
-	public String SearchUsager(Model model) {
-		model.addAttribute("usagers", null);
-		return "ListeUsagers";
-	}
-
-	@GetMapping("/allUsagers")
-	public String allUsagers(Model model) {
-		List<Usager> usagers = usagerService.findAll();
-		model.addAttribute("allUsagers", usagers);
-		return "ListeUsagers";
 	}
 }
