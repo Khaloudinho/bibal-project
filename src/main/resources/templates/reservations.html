@@ -33,8 +33,8 @@
 									<tr class="odd" role="row" th:each="reservation:${reservations}">
 										<td style="text-align: center" th:text="${reservation.idReservation}"></td>
 										<td style="text-align: center" th:text="${reservation.date}"></td>
-										<td style="text-align: center" th:text="${reservation.usager}"></td>
-										<td style="text-align: center" th:text="${reservation.oeuvre}"></td>
+										<td style="text-align: center" th:text="${reservation.usager.nom}+' '+${reservation.usager.prenom}"></td>
+										<td style="text-align: center" th:text="${reservation.oeuvre.titre}"></td>
 										<td>
 											<form th:action="@{'/usagers/'+ ${reservation.idReservation}+'/edit'}" method="get">
 												<div class="field">
