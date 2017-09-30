@@ -43,12 +43,11 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre) {
-		/*Reservation reservation = getById(idReservation);
+		Reservation reservation = getById(idReservation);
 		reservation.setDate(date);
 		reservation.setUsager(usager);
 		reservation.setOeuvre(oeuvre);
-		return reservation;*/
-		return new Reservation();
+		return reservation;
 	}
 
 }

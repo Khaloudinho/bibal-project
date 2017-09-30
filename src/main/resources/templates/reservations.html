@@ -23,6 +23,7 @@
 									   cellspacing="0">
 									<thead>
 									<tr>
+										<th>ID</th>
 										<th>Date</th>
 										<th>Usager</th>
 										<th>Oeuvre</th>
@@ -36,7 +37,7 @@
 										<td style="text-align: center" th:text="${reservation.usager.nom}+' '+${reservation.usager.prenom}"></td>
 										<td style="text-align: center" th:text="${reservation.oeuvre.titre}"></td>
 										<td>
-											<form th:action="@{'/usagers/'+ ${reservation.idReservation}+'/edit'}" method="get">
+											<form th:action="@{'/reservations/'+ ${reservation.idReservation}+'/edit'}" method="get">
 												<div class="field">
 													<div class="control">
 														<button class="button is-danger" type="submit">Modifier</button>

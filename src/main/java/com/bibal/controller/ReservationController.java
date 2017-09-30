@@ -60,19 +60,25 @@ public class ReservationController {
 		return "redirect:reservations";
 	}
 
-	/*
+
 	@GetMapping(value = "/reservations/{id}/edit")
 	public String getFormModifierUsager(@PathVariable(value = "id") Long idUsager, Model model) {
-		Reservation Reservation = reservationService.getById(idUsager);
-		model.addAttribute("Reservation", Reservation);
-		return "updateUserForm";
+		List<Usager> usagers = usagerService.findAll();
+		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
+		Reservation reservation = reservationService.getById(idUsager);
+
+		model.addAttribute("usagers", usagers);
+		model.addAttribute("oeuvres", oeuvres);
+		model.addAttribute("reservation", reservation);
+
+		return "formModifierReservation";
 	}
 
 	@PutMapping(value = "/reservations")
-	public String modifierUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
-			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
-			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
-		reservationService.modifierReservation(Long.valueOf(id), nom, prenom, adresse, tel, mail);
+	public String modifierUsager(@RequestParam("idReservation") Long idReservation, @RequestParam("date") Date date, @RequestParam("idUsager") Long idUsager, @RequestParam("idOeuvre") Long idOeuvre) {
+		Usager usager = usagerService.getById(idUsager);
+		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
+		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre);
 		return "redirect:reservations";
-	}*/
+	}
 }
