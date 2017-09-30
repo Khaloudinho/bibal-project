@@ -42,7 +42,7 @@ public class UsagerServiceImpl implements UsagerService {
 
 	@Override
 	public void addUsager(String nom, String prenom, String adresse, String mail, String tel) {
-		Usager usager = new Usager(nom, prenom, adresse, mail, tel);
+		Usager usager = new Usager(nom, prenom, adresse, mail, tel, 0, "OK", null);
 		usagerRepository.save(usager);
 	}
 

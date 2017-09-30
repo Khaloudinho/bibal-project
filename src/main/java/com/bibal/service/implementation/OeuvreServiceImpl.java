@@ -33,7 +33,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 
 	@Override
 	public void ajouterOeuvre(String titre, String auteur, String genre) {
-		Oeuvre oeuvre = new Oeuvre(titre, auteur, genre);
+		Oeuvre oeuvre = new Oeuvre(titre, auteur, genre, null);
 		oeuvreRepository.save(oeuvre);
 	}
 

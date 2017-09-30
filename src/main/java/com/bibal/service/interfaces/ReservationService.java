@@ -1,17 +1,17 @@
 package com.bibal.service.interfaces;
 
+import java.sql.Date;
 import java.util.List;
 
+import com.bibal.metier.Oeuvre;
+import com.bibal.metier.Reservation;
 import com.bibal.metier.Usager;
 
-public interface UsagerService {
+public interface ReservationService {
 
-	public void addUsager(String nom, String prenom, String adresse, String mail, String tel);
-	public void supprimmerUsager(Long idUsager);
-	public List<Usager> findAll();
-	public Usager getById(Long idUsager);
-	public List<Usager> searchByName(String nom);
-	public void activer(Long idUsager);
-	public Usager update(Long idUsager, String nom, String prenom, String adresse, String tel, String mail);
+	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre);
+	public List<Reservation> findAll();
+	public Reservation getById(Long idUsager);
+	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre);
 
 }

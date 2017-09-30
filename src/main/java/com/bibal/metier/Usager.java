@@ -2,6 +2,7 @@ package com.bibal.metier;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,11 +18,6 @@ import com.bibal.util.EtatUsager;
 @Entity
 public class Usager implements Serializable{
 
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = -8071716128487923877L;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idUsager;
@@ -33,41 +29,30 @@ public class Usager implements Serializable{
 	private int nombreSuspensions;
 	private String etat;
 
-	/*@OneToMany
-	@JoinColumn(name="idUsager",referencedColumnName="idUsager")
-	private List<Reservation> listReservations;
-*/
 	@OneToMany
 	@JoinColumn(name="idUsager", referencedColumnName="idUsager")
-	private List<Reservation> listeReservations;
-	
+	private Set<Reservation> listeReservations;
+
 	public Usager() {
-		super();
-		etat = EtatUsager.Client.toString();
-		nombreSuspensions = 0;
-	}
-	
-	public Usager(String nom, String prenom, String adresse, String mail, String tel) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.mail = mail;
-		this.tel = tel;
-		this.adresse=adresse;
-		this.etat = EtatUsager.Client.toString();
-		this.nombreSuspensions = 0;
-	}
-	
-	public String getEtat() {
-		return etat;
 	}
 
-	public void setEtat(String etat) {
+	public Usager(String nom, String prenom, String adresse, String mail, String tel, int nombreSuspensions, String etat, Set<Reservation> listeReservations) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.mail = mail;
+		this.tel = tel;
+		this.nombreSuspensions = nombreSuspensions;
 		this.etat = etat;
+		this.listeReservations = listeReservations;
 	}
 
 	public Long getIdUsager() {
 		return idUsager;
+	}
+
+	public void setIdUsager(Long idUsager) {
+		this.idUsager = idUsager;
 	}
 
 	public String getNom() {
@@ -86,6 +71,14 @@ public class Usager implements Serializable{
 		this.prenom = prenom;
 	}
 
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
 	public String getMail() {
 		return mail;
 	}
@@ -101,23 +94,7 @@ public class Usager implements Serializable{
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	
-	/*public List<Emprunt> getListEmprunts() {
-		return listEmprunts;
-	}
-	
-	public List<Reservation> getListReservations() {
-		return listReservations;
-	}*/
-	
-	public String getAdresse() {
-		return adresse;
-	}
-	
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	
+
 	public int getNombreSuspensions() {
 		return nombreSuspensions;
 	}
@@ -126,17 +103,19 @@ public class Usager implements Serializable{
 		this.nombreSuspensions = nombreSuspensions;
 	}
 
-	public void suspendre(){
-		setEtat(EtatUsager.Suspendu.toString());
-		incrementNombreSuspensions();
+	public String getEtat() {
+		return etat;
 	}
-	public void incrementNombreSuspensions(){
-		if(nombreSuspensions<2)
-			nombreSuspensions++;
-		else{
-			setEtat(EtatUsager.Desactive.toString());
-			nombreSuspensions = 0;
-		}
+
+	public void setEtat(String etat) {
+		this.etat = etat;
 	}
-	
+
+	public Set<Reservation> getListeReservations() {
+		return listeReservations;
+	}
+
+	public void setListeReservations(Set<Reservation> listeReservations) {
+		this.listeReservations = listeReservations;
+	}
 }

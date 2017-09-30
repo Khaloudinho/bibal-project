@@ -29,6 +29,11 @@ public class UsagerController {
 		return "usagers";
 	}
 
+	@GetMapping("/usagers.json")
+	public String recupererToutesLesUsagersJSON(Model model) {
+		this.recupererToutesLesUsagers(model);
+		return "usagers";
+	}
 	@GetMapping(value = "/addUsagerForm")
 	public String getFormCreationUsager() {
 		return "createUserForm";

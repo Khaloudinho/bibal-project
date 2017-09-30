@@ -1,10 +1,9 @@
 package com.bibal.metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Oeuvre implements Serializable {
@@ -16,12 +15,18 @@ public class Oeuvre implements Serializable {
 	private String auteur;
 	private String genre;
 
+	@OneToMany
+	@JoinColumn(name = "idOeuvre", referencedColumnName = "idOeuvre")
+	private Set<Reservation> setReservations;
+
+
 	public Oeuvre() {}
 
-	public Oeuvre(String titre, String auteur, String genre) {
+	public Oeuvre(String titre, String auteur, String genre, Set<Reservation> setReservations) {
 		this.titre = titre;
 		this.auteur = auteur;
 		this.genre = genre;
+		this.setReservations = setReservations;
 	}
 
 	public Long getIdOeuvre() {
@@ -54,5 +59,13 @@ public class Oeuvre implements Serializable {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+	public Set<Reservation> getSetReservations() {
+		return setReservations;
+	}
+
+	public void setSetReservations(Set<Reservation> setReservations) {
+		this.setReservations = setReservations;
 	}
 }

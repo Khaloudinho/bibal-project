@@ -1,36 +1,67 @@
 package com.bibal.metier;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.bibal.util.EtatUsager;
 
 @Entity
 public class Reservation implements Serializable{
 
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = -8071716128487923877L;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idReservation;
+	private Date date;
 
 	@ManyToOne
-	@Join
+	@JoinColumn(name = "idUsager")
+	private Usager usager;
 
+	@ManyToOne
+	@JoinColumn(name = "idOeuvre")
+	private Oeuvre oeuvre;
 
-	
+	public Reservation(Date date, Usager usager, Oeuvre oeuvre) {
+		this.date = date;
+		this.usager = usager;
+		this.oeuvre = oeuvre;
+	}
 
-	
+	public Reservation() {
+	}
+
+	public Long getIdReservation() {
+		return idReservation;
+	}
+
+	public void setIdReservation(Long idReservation) {
+		this.idReservation = idReservation;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Usager getUsager() {
+		return usager;
+	}
+
+	public void setUsager(Usager usager) {
+		this.usager = usager;
+	}
+
+	public Oeuvre getOeuvre() {
+		return oeuvre;
+	}
+
+	public void setOeuvre(Oeuvre oeuvre) {
+		this.oeuvre = oeuvre;
+	}
 }

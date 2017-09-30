@@ -1,65 +1,54 @@
 package com.bibal.service.implementation;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import com.bibal.dao.ReservationRepository;
+import com.bibal.metier.Oeuvre;
+import com.bibal.metier.Reservation;
+import com.bibal.service.interfaces.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bibal.dao.UsagerRepository;
+import com.bibal.dao.ReservationRepository;
 import com.bibal.metier.Usager;
 import com.bibal.service.interfaces.UsagerService;
 import com.bibal.util.EtatUsager;
 
 @Service
 @Transactional
-public class UsagerServiceImpl implements UsagerService {
+public class ReservationServiceImpl implements ReservationService {
 
 	@Autowired
-	private UsagerRepository usagerRepository;
+	private ReservationRepository reservationRepository;
 
 	@Override
-	public List<Usager> findAll() {
-		return usagerRepository.findAll();
+	public List<Reservation> findAll() {
+		return reservationRepository.findAll();
 	}
 
 	@Override
-	public Usager getById(Long idUsager) {
-		return usagerRepository.findOne(idUsager);
+	public Reservation getById(Long idReservation) {
+		return reservationRepository.findOne(idReservation);
 	}
 
 	@Override
-	public List<Usager> searchByName(String nom) {
-		return usagerRepository.searchUsagersByName(nom);
+	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre) {
+		/*Usager usager = ;
+		reservationRepository.save(usager);*/
 	}
 
 	@Override
-	public void activer(Long idUsager) {
-		Usager usager = getById(idUsager);
-		usager.setEtat(EtatUsager.Client.toString());
-	}
-
-	@Override
-	public void addUsager(String nom, String prenom, String adresse, String mail, String tel) {
-		Usager usager = new Usager(nom, prenom, adresse, mail, tel);
-		usagerRepository.save(usager);
-	}
-
-	@Override
-	public void supprimmerUsager(Long idUsager) {
-		usagerRepository.deleteUsagerById(idUsager);
-	}
-
-	@Override
-	public Usager update(Long idUsager, String nom, String prenom, String adresse, String tel, String mail) {
-		Usager usager = getById(idUsager);
-		usager.setNom(nom);
-		usager.setPrenom(prenom);
-		usager.setAdresse(adresse);
-		usager.setTel(tel);
-		usager.setMail(mail);
-		return usager;
+	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre) {
+		/*Reservation reservation = getById(idReservation);
+		reservation.setDate(date);
+		reservation.setUsager(usager);
+		reservation.setOeuvre(oeuvre);
+		return reservation;*/
+		return new Reservation();
 	}
 
 }
