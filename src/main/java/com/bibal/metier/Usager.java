@@ -36,10 +36,10 @@ public class Usager implements Serializable{
 	/*@OneToMany
 	@JoinColumn(name="idUsager",referencedColumnName="idUsager")
 	private List<Reservation> listReservations;
-
+*/
 	@OneToMany
 	@JoinColumn(name="idUsager", referencedColumnName="idUsager")
-	private List<Emprunt> listEmprunts;*/
+	private List<Reservation> listeReservations;
 	
 	public Usager() {
 		super();
