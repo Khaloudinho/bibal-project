@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Mise à jour de l'usager</title>
@@ -8,41 +8,41 @@
 <body>
 <section>
     <div class="container">
-        <p class="title">Mise à jour de l'usager <span th:text="${usager.nom}"></span> <span th:text="${usager.prenom}"></span></p>
+        <p class="title">Mise à jour de l'usager suivant : <span th:text="${usager.nom}"></span> <span th:text="${usager.prenom}"></span></p>
         <form th:action="@{/usager}" th:method="put">
-            <input type="hidden" name="id" th:value="${usager.idUsager}"></input>
+            <input type="hidden" name="id" th:value="${usager.idUsager}" />
             <div class="field">
                 <label class="label">Prénom</label>
                 <div class="control">
-                    <input class="input" type="text" name="prenom" placeholder="Prénom" th:value="${usager.prenom}"></input>
+                    <input class="input" type="text" name="prenom" th:value="${usager.prenom}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">
-                    <input class="input" type="text" name="nom" placeholder="Nom" th:value="${usager.nom}"></input>
+                    <input class="input" type="text" name="nom" th:value="${usager.nom}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Adresse</label>
                 <div class="control">
-                    <input class="input" type="text" name="adresse" placeholder="Adresse" th:value="${usager.adresse}"></input>
+                    <input class="input" type="text" name="adresse" th:value="${usager.adresse}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Mail</label>
                 <div class="control">
-                    <input class="input" type="email" name="mail" placeholder="Mail" th:value="${usager.mail}"></input>
+                    <input class="input" type="email" name="mail" th:value="${usager.mail}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Téléphone</label>
                 <div class="control">
-                    <input class="input" type="tel" name="tel" placeholder="Téléphone" th:value="${usager.tel}"></input>
+                    <input class="input" type="tel" name="telephone" th:value="${usager.telephone}" />
                 </div>
             </div>
 

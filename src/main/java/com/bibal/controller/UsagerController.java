@@ -22,44 +22,40 @@ public class UsagerController {
 	@Autowired
 	private UsagerService usagerService;
 
-	@GetMapping("/usagers")
-	public String recupererToutesLesUsagers(Model model) {
-		List<Usager> usagers = usagerService.findAll();
-		model.addAttribute("allUsagers", usagers);
+	@GetMapping(value = "/usagers")
+	public String recupererTousLesUsagers(Model model) {
+		List<Usager> usagers = usagerService.recupererTousLesUsagers();
+		model.addAttribute("usagers", usagers);
 		return "usagers";
 	}
 
-	@GetMapping(value = "/addUsagerForm")
-	public String getFormCreationUsager() {
-		return "createUserForm";
+	@GetMapping(value = "/getFormAjouterUsager")
+	public String getFormAjouterUsager() {
+		return "formAjouterUsager";
 	}
 
-	@PostMapping(value = "/addUsager")
-	public String ajouterUsager(@RequestParam("prenom") String prenom, @RequestParam("nom") String nom,
-			@RequestParam("adresse") String adresse, @RequestParam("mail") String mail,
-			@RequestParam("tel") String tel) {
-		usagerService.addUsager(nom, prenom, adresse, mail, tel);
+	@PostMapping(value = "/ajouterUsager")
+	public String ajouterUsager(String prenom, String nom, String adresse, String mail, String telephone) {
+		usagerService.ajouterUsager(nom, prenom, adresse, mail, telephone);
 		return "redirect:usagers";
 	}
 
-	@GetMapping(value = "/usagers/{id}/edit")
-	public String getFormModifierUsager(@PathVariable(value = "id") Long idUsager, Model model) {
-		Usager usager = usagerService.getById(idUsager);
+	@GetMapping(value = "/getFormModifierUsager/{idUsager}")
+	public String getFormModifierUsager(@PathVariable Long idUsager, Model model) {
+		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		model.addAttribute("usager", usager);
-		return "updateUserForm";
+		return "formModifierUsager";
 	}
 
-	@PutMapping(value = "/usager")
-	public String modifierUsager(@RequestParam("id") String id, @RequestParam("prenom") String prenom,
-			@RequestParam("nom") String nom, @RequestParam("adresse") String adresse,
-			@RequestParam("mail") String mail, @RequestParam("tel") String tel) {
-		usagerService.update(Long.valueOf(id), nom, prenom, adresse, tel, mail);
+	@PutMapping(value = "/modifierUsager/{idUsager}/edit")
+	public String modifierUsager(@PathVariable String idUsager, String adresse, String mail, String telephone) {
+		usagerService.modifierUsager(Long.valueOf(idUsager), adresse, mail, telephone);
 		return "redirect:usagers";
 	}
 
-	@DeleteMapping(value = "/usager")
-	public String supprimerUsager(Long idUsager) {
-		usagerService.supprimmerUsager(idUsager);
+	@DeleteMapping(value = "/supprimerUsager/{idUsager}/delete")
+	public String supprimerUsager(@PathVariable Long idUsager) {
+		usagerService.supprimerUsager(idUsager);
 		return "redirect:usagers";
 	}
 }

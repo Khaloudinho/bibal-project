@@ -16,17 +16,4 @@ public interface OeuvreRepository extends JpaRepository<Oeuvre, Long> {
 	
 	@Query("SELECT o FROM Oeuvre o WHERE o.titre LIKE %:x%")
 	List<Oeuvre> recupererOeuvreViaTitre(@Param("x") String titre);
-	/*
-	@Query("SELECT o FROM Oeuvre o WHERE o.idOeuvre LIKE %:id%")
-	Oeuvre recupererOeuvreViaID(@Param("id") Long idOeuvre);
-
-	@Query("SELECT o FROM Oeuvre o")
-	List<Oeuvre> recupererToutesLesOeuvres();
-
-	@Transactional
-	@Modifying
-	@Cascade(CascadeType.ALL)
-	@Query("DELETE FROM Oeuvre WHERE idOeuvre = :id")
-	void supprimerOeuvreViaID(@Param("id") Long id);
-	*/
 }

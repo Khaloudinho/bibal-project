@@ -1,18 +1,12 @@
 package com.bibal.metier;
 
-import java.io.Serializable;
-import java.util.List;
+import com.bibal.util.EtatUsager;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
-import com.bibal.util.EtatUsager;
+import java.io.Serializable;
 
 @Entity
 public class Usager implements Serializable{
@@ -29,7 +23,7 @@ public class Usager implements Serializable{
 	private String prenom;	
 	private String adresse;
 	private String mail;
-	private String tel;
+	private String telephone;
 	private int nombreSuspensions;
 	private String etat;
 
@@ -47,12 +41,12 @@ public class Usager implements Serializable{
 		nombreSuspensions = 0;
 	}
 	
-	public Usager(String nom, String prenom, String adresse, String mail, String tel) {
+	public Usager(String nom, String prenom, String adresse, String mail, String telephone) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
-		this.tel = tel;
+		this.telephone = telephone;
 		this.adresse=adresse;
 		this.etat = EtatUsager.Client.toString();
 		this.nombreSuspensions = 0;
@@ -94,12 +88,12 @@ public class Usager implements Serializable{
 		this.mail = mail;
 	}
 
-	public String getTel() {
-		return tel;
+	public String getTelephone() {
+		return telephone;
 	}
 
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 	
 	/*public List<Emprunt> getListEmprunts() {

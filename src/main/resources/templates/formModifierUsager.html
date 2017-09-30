@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Mise à jour de l'usager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
+</head>
+
+<body>
+<section layout:fragment="custom-content">
+    <div class="container">
+        <p class="title">Mise à jour de l'usager suivant : <span th:text="${usager.nom}"></span> <span th:text="${usager.prenom}"></span></p>
+        <form th:action="@{/modifierUsager/__${usager.idUsager}__/edit}" th:method="put">
+            <div class="field">
+                <label class="label">Adresse</label>
+                <div class="control">
+                    <input class="input" type="text" name="adresse" th:value="${usager.adresse}" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Mail</label>
+                <div class="control">
+                    <input class="input" type="email" name="mail" th:value="${usager.mail}" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Téléphone</label>
+                <div class="control">
+                    <input class="input" type="tel" name="telephone" th:value="${usager.telephone}" />
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-danger">Modifier</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

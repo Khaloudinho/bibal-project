@@ -15,16 +15,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 public interface UsagerRepository extends JpaRepository<Usager, Long> {
 	
-	@Query("select u from Usager u where u.nom like %:x%")
-	public List<Usager> searchUsagersByName(@Param("x")String nom);
+	@Query("SELECT u FROM Usager u WHERE u.nom LIKE %:x%")
+	List<Usager> recupererUsagersViaNom(@Param("x")String nom);
 	
-	@Query("select u from Usager u where u.etat like :x")
-	public List<Usager> searchUsagersByEtat(@Param("x")String etat);
-
-	@Transactional
-	@Modifying
-	@Cascade(CascadeType.ALL)
-	@Query("DELETE FROM Usager where id_usager = :id")
-	public void deleteUsagerById(@Param("id")Long id);
-
+	@Query("SELECT u FROM Usager u WHERE u.etat LIKE :x")
+	List<Usager> searchUsagersByEtat(@Param("x")String etat);
 }
