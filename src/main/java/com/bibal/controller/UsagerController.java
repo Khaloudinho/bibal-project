@@ -22,40 +22,40 @@ public class UsagerController {
 	@Autowired
 	private UsagerService usagerService;
 
-	@GetMapping(value = "/usagers")
+	@GetMapping(value = "usagers")
 	public String recupererTousLesUsagers(Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		model.addAttribute("usagers", usagers);
 		return "usagers";
 	}
 
-	@GetMapping(value = "/getFormAjouterUsager")
+	@GetMapping(value = "usagers/create")
 	public String getFormAjouterUsager() {
 		return "formAjouterUsager";
 	}
 
-	@PostMapping(value = "/ajouterUsager")
+	@PostMapping(value = "ajouterUsager")
 	public String ajouterUsager(String prenom, String nom, String adresse, String mail, String telephone) {
 		usagerService.ajouterUsager(nom, prenom, adresse, mail, telephone);
 		return "redirect:usagers";
 	}
 
-	@GetMapping(value = "/getFormModifierUsager/{idUsager}")
+	@GetMapping(value = "usagers/{idUsager}/edit")
 	public String getFormModifierUsager(@PathVariable Long idUsager, Model model) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		model.addAttribute("usager", usager);
 		return "formModifierUsager";
 	}
 
-	@PutMapping(value = "/modifierUsager/{idUsager}/edit")
-	public String modifierUsager(@PathVariable String idUsager, String adresse, String mail, String telephone) {
-		usagerService.modifierUsager(Long.valueOf(idUsager), adresse, mail, telephone);
-		return "redirect:usagers";
+	@PutMapping(value = "usagers/{idUsager}")
+	public String modifierUsager(@PathVariable String idUsager, String prenom, String nom, String adresse, String mail, String telephone) {
+		usagerService.modifierUsager(Long.valueOf(idUsager), prenom, nom, adresse, mail, telephone);
+		return "redirect:/usagers";
 	}
 
-	@DeleteMapping(value = "/supprimerUsager/{idUsager}/delete")
+	@DeleteMapping(value = "usagers/{idUsager}")
 	public String supprimerUsager(@PathVariable Long idUsager) {
 		usagerService.supprimerUsager(idUsager);
-		return "redirect:usagers";
+		return "redirect:/usagers";
 	}
 }

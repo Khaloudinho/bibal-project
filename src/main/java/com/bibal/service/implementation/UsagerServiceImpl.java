@@ -50,8 +50,10 @@ public class UsagerServiceImpl implements UsagerService {
 	}
 
 	@Override
-	public Usager modifierUsager(Long idUsager, String adresse, String mail, String telephone) {
+	public Usager modifierUsager(Long idUsager, String prenom, String nom, String adresse, String mail, String telephone) {
 		Usager usager = recupererUsagerViaID(idUsager);
+		usager.setPrenom(prenom);
+		usager.setNom(nom);
 		usager.setAdresse(adresse);
 		usager.setMail(mail);
 		usager.setTelephone(telephone);

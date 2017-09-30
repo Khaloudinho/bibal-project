@@ -19,6 +19,6 @@ public interface UsagerService {
 	List<Usager> recupererUsagersViaNom(String nom);
 
 	// PUT
-	Usager modifierUsager(Long idUsager, String adresse, String mail, String telephone);
+	Usager modifierUsager(Long idUsager, String prenom, String nom, String adresse, String mail, String telephone);
 
 }

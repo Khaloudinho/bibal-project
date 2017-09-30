@@ -10,7 +10,7 @@
 	<section layout:fragment="custom-content">
 		<div class="container">
 			    <p class="title">Gestion des usagers</p>
-			<form th:action="@{/getFormAjouterUsager}" th:method="get">
+			<form th:action="@{/usagers/create}" th:method="get">
 				<div class="field" style="margin-bottom: 2.4%">
 					<div class="control">
 						<button class="button is-primary">Nouvel usager</button>
@@ -38,7 +38,7 @@
 										<td style="text-align: center" th:text="${u.mail}"></td>
 										<td style="text-align: center" th:text="${u.telephone}"></td>
 										<td>
-											<form th:action="@{/getFormModifierUsager/__${u.idUsager}__}" th:method="get">
+											<form th:action="@{/usagers/__${u.idUsager}__/edit}" th:method="get">
 												<div class="field">
 													<div class="control">
 														<button class="button is-danger" type="submit">Modifier</button>
@@ -48,7 +48,7 @@
 										</td>
 										<td>
 
-											<form th:action="@{/supprimerUsager/__${u.idUsager}__/delete}" th:method="delete">
+											<form th:action="@{/usagers/__${u.idUsager}__}" th:method="delete">
 												<div class="field">
 													<div class="control">
 														<button class="button is-black" type="submit">Supprimer</button>
