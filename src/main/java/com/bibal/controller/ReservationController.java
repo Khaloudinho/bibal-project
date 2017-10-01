@@ -72,6 +72,7 @@ public class ReservationController {
 		model.addAttribute("reservation", reservation);
 
 		return "formModifierReservation";
+
 	}
 
 	@PutMapping(value = "/reservations")

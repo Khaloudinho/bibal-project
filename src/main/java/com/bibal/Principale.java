@@ -3,9 +3,11 @@ package com.bibal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class Principale implements CommandLineRunner
+public class Principale extends SpringBootServletInitializer
 {
 
 	/*
@@ -17,7 +19,9 @@ public class Principale implements CommandLineRunner
 	}
 
 	@Override
-	public void run(String... arg0) throws Exception
-	{
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(applicationClass).web(false);
 	}
+
+	private static Class<Principale> applicationClass = Principale.class;
 }
