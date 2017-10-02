@@ -32,11 +32,11 @@ public class UsagerServiceImpl implements UsagerService {
 		return usagerRepository.recupererUsagersViaNom(nom);
 	}
 
-	@Override
+	/*@Override
 	public void activer(Long idUsager) {
 		Usager usager = recupererUsagerViaID(idUsager);
 		usager.setEtat(EtatUsager.Client.toString());
-	}
+	}*/
 
 	@Override
 	public void ajouterUsager(String nom, String prenom, String adresse, String mail, String telephone) {
@@ -50,10 +50,8 @@ public class UsagerServiceImpl implements UsagerService {
 	}
 
 	@Override
-	public Usager modifierUsager(Long idUsager, String prenom, String nom, String adresse, String mail, String telephone) {
+	public Usager modifierUsager(Long idUsager, String adresse, String mail, String telephone) {
 		Usager usager = recupererUsagerViaID(idUsager);
-		usager.setPrenom(prenom);
-		usager.setNom(nom);
 		usager.setAdresse(adresse);
 		usager.setMail(mail);
 		usager.setTelephone(telephone);

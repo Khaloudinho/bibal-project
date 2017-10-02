@@ -17,7 +17,4 @@ public interface UsagerRepository extends JpaRepository<Usager, Long> {
 	
 	@Query("SELECT u FROM Usager u WHERE u.nom LIKE %:x%")
 	List<Usager> recupererUsagersViaNom(@Param("x")String nom);
-	
-	@Query("SELECT u FROM Usager u WHERE u.etat LIKE :x")
-	List<Usager> searchUsagersByEtat(@Param("x")String etat);
 }

@@ -10,11 +10,6 @@ import java.io.Serializable;
 
 @Entity
 public class Usager implements Serializable{
-
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = -8071716128487923877L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,21 +19,13 @@ public class Usager implements Serializable{
 	private String adresse;
 	private String mail;
 	private String telephone;
-	private int nombreSuspensions;
-	private String etat;
-
-	/*@OneToMany
-	@JoinColumn(name="idUsager",referencedColumnName="idUsager")
-	private List<Reservation> listReservations;
-
-	@OneToMany
-	@JoinColumn(name="idUsager", referencedColumnName="idUsager")
-	private List<Emprunt> listEmprunts;*/
+	// private int nombreSuspensions;
+	// private String etat;
 	
 	public Usager() {
 		super();
-		etat = EtatUsager.Client.toString();
-		nombreSuspensions = 0;
+		// etat = EtatUsager.Client.toString();
+		// nombreSuspensions = 0;
 	}
 	
 	public Usager(String nom, String prenom, String adresse, String mail, String telephone) {
@@ -48,17 +35,17 @@ public class Usager implements Serializable{
 		this.mail = mail;
 		this.telephone = telephone;
 		this.adresse=adresse;
-		this.etat = EtatUsager.Client.toString();
-		this.nombreSuspensions = 0;
+		// this.etat = EtatUsager.Client.toString();
+		// this.nombreSuspensions = 0;
 	}
 	
-	public String getEtat() {
+	/* public String getEtat() {
 		return etat;
 	}
 
 	public void setEtat(String etat) {
 		this.etat = etat;
-	}
+	} */
 
 	public Long getIdUsager() {
 		return idUsager;
@@ -96,14 +83,6 @@ public class Usager implements Serializable{
 		this.telephone = telephone;
 	}
 	
-	/*public List<Emprunt> getListEmprunts() {
-		return listEmprunts;
-	}
-	
-	public List<Reservation> getListReservations() {
-		return listReservations;
-	}*/
-	
 	public String getAdresse() {
 		return adresse;
 	}
@@ -112,7 +91,7 @@ public class Usager implements Serializable{
 		this.adresse = adresse;
 	}
 	
-	public int getNombreSuspensions() {
+	/* public int getNombreSuspensions() {
 		return nombreSuspensions;
 	}
 
@@ -131,6 +110,6 @@ public class Usager implements Serializable{
 			setEtat(EtatUsager.Desactive.toString());
 			nombreSuspensions = 0;
 		}
-	}
-	
+	} */
+
 }

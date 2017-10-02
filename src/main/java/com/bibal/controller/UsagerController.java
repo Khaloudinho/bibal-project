@@ -48,8 +48,8 @@ public class UsagerController {
 	}
 
 	@PutMapping(value = "usagers/{idUsager}")
-	public String modifierUsager(@PathVariable String idUsager, String prenom, String nom, String adresse, String mail, String telephone) {
-		usagerService.modifierUsager(Long.valueOf(idUsager), prenom, nom, adresse, mail, telephone);
+	public String modifierUsager(@PathVariable String idUsager, String adresse, String mail, String telephone) {
+		usagerService.modifierUsager(Long.valueOf(idUsager), adresse, mail, telephone);
 		return "redirect:/usagers";
 	}
 

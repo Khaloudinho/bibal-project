@@ -8,7 +8,7 @@ public interface UsagerService {
 
 	// POST
 	void ajouterUsager(String nom, String prenom, String adresse, String mail, String telephone);
-	void activer(Long idUsager);
+	// void activer(Long idUsager);
 
 	// DELETE
 	void supprimerUsager(Long idUsager);
@@ -19,6 +19,6 @@ public interface UsagerService {
 	List<Usager> recupererUsagersViaNom(String nom);
 
 	// PUT
-	Usager modifierUsager(Long idUsager, String prenom, String nom, String adresse, String mail, String telephone);
+	Usager modifierUsager(Long idUsager, String adresse, String mail, String telephone);
 
 }
