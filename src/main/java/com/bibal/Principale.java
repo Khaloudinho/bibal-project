@@ -18,10 +18,12 @@ public class Principale extends SpringBootServletInitializer
 		SpringApplication.run(Principale.class, args);
 	}
 
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(applicationClass).web(false);
 	}
 
 	private static Class<Principale> applicationClass = Principale.class;
+
 }
