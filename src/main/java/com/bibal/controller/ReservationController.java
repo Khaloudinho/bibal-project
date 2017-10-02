@@ -44,7 +44,7 @@ public class ReservationController {
 
 	@GetMapping("/reservations/create")
 	public String getFormCreationReservation(Model model) {
-		List<Usager> usagers = usagerService.findAll();
+		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
 		model.addAttribute("usagers", usagers);
 		model.addAttribute("oeuvres", oeuvres);
@@ -54,7 +54,7 @@ public class ReservationController {
 	@PostMapping(value = "/reservations")
 	public String ajouterReservation(@RequestParam("date") Date date, @RequestParam("idUsager") Long idUsager,
 								@RequestParam("idOeuvre") Long idOeuvre) {
-		Usager usager = usagerService.getById(idUsager);
+		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
 		reservationService.ajouterReservation(date, usager, oeuvre);
 		return "redirect:reservations";
@@ -63,7 +63,7 @@ public class ReservationController {
 
 	@GetMapping(value = "/reservations/{id}/edit")
 	public String getFormModifierUsager(@PathVariable(value = "id") Long idUsager, Model model) {
-		List<Usager> usagers = usagerService.findAll();
+		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
 		Reservation reservation = reservationService.getById(idUsager);
 
@@ -77,7 +77,7 @@ public class ReservationController {
 
 	@PutMapping(value = "/reservations")
 	public String modifierUsager(@RequestParam("idReservation") Long idReservation, @RequestParam("date") Date date, @RequestParam("idUsager") Long idUsager, @RequestParam("idOeuvre") Long idOeuvre) {
-		Usager usager = usagerService.getById(idUsager);
+		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
 		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre);
 		return "redirect:reservations";

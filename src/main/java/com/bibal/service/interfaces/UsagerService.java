@@ -1,17 +1,24 @@
 package com.bibal.service.interfaces;
 
-import java.util.List;
-
 import com.bibal.metier.Usager;
+
+import java.util.List;
 
 public interface UsagerService {
 
-	public void addUsager(String nom, String prenom, String adresse, String mail, String tel);
-	public void supprimmerUsager(Long idUsager);
-	public List<Usager> findAll();
-	public Usager getById(Long idUsager);
-	public List<Usager> searchByName(String nom);
-	public void activer(Long idUsager);
-	public Usager update(Long idUsager, String nom, String prenom, String adresse, String tel, String mail);
+	// POST
+	void ajouterUsager(String nom, String prenom, String adresse, String mail, String telephone);
+	// void activer(Long idUsager);
+
+	// DELETE
+	void supprimerUsager(Long idUsager);
+
+	// GET
+	List<Usager> recupererTousLesUsagers();
+	Usager recupererUsagerViaID(Long idUsager);
+	List<Usager> recupererUsagersViaNom(String nom);
+
+	// PUT
+	Usager modifierUsager(Long idUsager, String adresse, String mail, String telephone);
 
 }

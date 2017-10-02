@@ -1,47 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <title>Création d'un usager</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Création d'un usager</p>
-        <form th:action="@{/addUsager}" method="post">
+        <form th:action="@{/usagers}" th:method="post">
             <div class="field">
                 <label class="label">Prénom</label>
                 <div class="control">
-                    <input class="input" type="text" name="prenom" placeholder="Prénom"></input>
+                    <input class="input" type="text" name="prenom" placeholder="Guillaume" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Nom</label>
                 <div class="control">
-                    <input class="input" type="text" name="nom" placeholder="Nom"></input>
+                    <input class="input" type="text" name="nom" placeholder="Bertrand" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Adresse</label>
                 <div class="control">
-                    <input class="input" type="text" name="adresse" placeholder="Adresse"></input>
+                    <input class="input" type="text" name="adresse" placeholder="15 rue des Tulipiers" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Mail</label>
+                <label class="label">E-mail</label>
                 <div class="control">
-                    <input class="input" type="email" name="mail" placeholder="Mail"></input>
+                    <input class="input" type="email" name="mail" placeholder="g.bertrand@bibal.com" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Téléphone</label>
                 <div class="control">
-                    <input class="input" type="tel" name="tel" placeholder="Téléphoene"></input>
+                    <input class="input" type="tel" name="telephone" placeholder="0695847564" />
                 </div>
             </div>
 

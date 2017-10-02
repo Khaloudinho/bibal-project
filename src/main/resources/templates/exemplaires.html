@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
 	<meta charset="UTF-8" />
-	<title>Usagers</title>
+	<title>Gestion des exemplaires</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
 
 <body>
 	<section layout:fragment="custom-content">
 		<div class="container">
-			    <p class="title">Gestion des usagers</p>
-			<form th:action="@{/usagers/create}" th:method="get">
+			    <p class="title">Gestion des exemplaires</p>
+			<form th:action="@{/exemplaires/create}" th:method="get">
 				<div class="field" style="margin-bottom: 2.4%">
 					<div class="control">
-						<button class="button is-primary">Ajouter un nouvel usager</button>
+						<button class="button is-primary">Ajouter un nouvel exemplaire</button>
 					</div>
 				</div>
 			</form>
@@ -21,24 +21,23 @@
 								<table class="table table-striped table-bordered" cellspacing="0">
 									<thead>
 									<tr>
-										<th>Nom</th>
-										<th>Prénom</th>
-										<th>Adresse</th>
-										<th>E-mail</th>
-										<th>Téléphone</th>
+										<th>Numéro de l'exemplaire</th>
+										<th>Titre</th>
+										<th>Auteur</th>
+										<th>Etat</th>
+										<th>Statut</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
 									</tr>
 									</thead>
 									<tbody>
-									<tr class="odd" role="row" th:each="u:${usagers}" th:id="${u.idUsager}">
-										<td style="text-align: center" th:text="${u.nom}"></td>
-										<td style="text-align: center" th:text="${u.prenom}"></td>
-										<td style="text-align: center" th:text="${u.adresse}"></td>
-										<td style="text-align: center" th:text="${u.mail}"></td>
-										<td style="text-align: center" th:text="${u.telephone}"></td>
+									<tr class="odd" role="row" th:each="e:${exemplaires}" th:id="${e.idExemplaire}">
+										<td style="text-align: center" th:text="${e.idExemplaire}"></td>
+										<td style="text-align: center" th:text="${e.titre}"></td>
+										<td style="text-align: center" th:text="${e.etat}"></td>
+										<td style="text-align: center" th:text="${e.statut}"></td>
 										<td>
-											<form th:action="@{/usagers/__${u.idUsager}__/edit}" th:method="get">
+											<form th:action="@{/exemplaires/__${e.idExemplaire}__/edit}" th:method="get">
 												<div class="field">
 													<div class="control">
 														<button class="button is-danger" type="submit">Modifier</button>
@@ -48,7 +47,7 @@
 										</td>
 										<td>
 
-											<form th:action="@{/usagers/__${u.idUsager}__}" th:method="delete">
+											<form th:action="@{/exemplaires/__${e.idExemplaire}__}" th:method="delete">
 												<div class="field">
 													<div class="control">
 														<button class="button is-black" type="submit">Supprimer</button>

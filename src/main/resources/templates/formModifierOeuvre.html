@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
     <meta charset="UTF-8"/>
     <title>Mise à jour de l'oeuvre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Mise à jour de l'oeuvre <span th:text="${oeuvre.titre}"></span></p>
-        <form th:action="@{/modifierOeuvre}" th:method="put">
-            <input type="hidden" name="id" th:value="${oeuvre.idOeuvre}"></input>
+        <form th:action="@{/oeuvres/__${oeuvre.idOeuvre}__}" th:method="put">
+            <input type="hidden" name="id" th:value="${oeuvre.idOeuvre}" />
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
