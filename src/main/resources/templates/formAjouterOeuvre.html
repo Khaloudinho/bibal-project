@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
     <meta charset="UTF-8"/>
     <title>Création d'une oeuvre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Création d'une oeuvre</p>
         <form th:action="@{/oeuvres}" th:method="post">

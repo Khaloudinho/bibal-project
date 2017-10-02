@@ -1,54 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html xmlns:th="http://www.thymeleaf.org">
-        <head>
-            <meta charset="UTF-8"/>
-            <title>Création d'un usager</title>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></link>
-        </head>
+    <meta charset="UTF-8"/>
+    <title>Création d'un usager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
+</head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
-        <p class="title">Création d'un usager</p>
-        <form th:action="@{/addUsager}" method="post">
+        <p class="title">Création d'un exemplaire</p>
+        <form th:action="@{/exemplaires}" method="post">
             <div class="field">
-                <label class="label">Prénom</label>
+                <label class="label">Titre de l'oeuvre</label>
                 <div class="control">
-                    <input class="input" type="text" name="prenom" placeholder="Guillaume" />
+                    <input class="input" type="text" name="titre" placeholder="Une romance à Dunkerque" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Nom</label>
+                <label class="label">Auteur(s) de l'oeuvre</label>
                 <div class="control">
-                    <input class="input" type="text" name="nom" placeholder="Bertrand" />
+                    <input class="input" type="text" name="auteur" placeholder="C. Barbier" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Adresse</label>
+                <label class="label">Etat de l'exemplaire</label>
                 <div class="control">
-                    <input class="input" type="text" name="adresse" placeholder="Adresse" />
+                    <input class="input" type="text" name="etat" placeholder="Neuf" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">E-mail</label>
+                <label class="label">Statut de l'exemplaire</label>
                 <div class="control">
-                    <input class="input" type="email" name="mail" placeholder="g.bertrand@bibal.com" />
+                    <input class="input" type="email" name="statut" placeholder="Disponible" />
                 </div>
             </div>
-
-            <div class="field">
-                <label class="label">Téléphone</label>
-                <div class="control">
-                    <input class="input" type="tel" name="telephone" placeholder="0695847564" />
-                </div>
-            </div>
-
             <div class="field">
                 <div class="control">
                     <button class="button is-primary">Valider</button>

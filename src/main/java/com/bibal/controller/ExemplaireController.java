@@ -22,40 +22,40 @@ public class ExemplaireController {
     @Autowired
     private ExemplaireService exemplaireService;
 
-    @GetMapping(value = "/exemplaires")
+    @GetMapping(value = "exemplaires")
     public String recupererTousLesExemplaires(Model model) {
         List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplaires();
         model.addAttribute("exemplaires", exemplaires);
         return "exemplaires";
     }
 
-    @GetMapping(value = "/getFormAjouterExemplaire")
+    @GetMapping(value = "exemplaires/create")
     public String getFormAjouterExemplaire() {
         return "formAjouterExemplaire";
     }
 
-    @GetMapping(value = "/getFormModifierExemplaire/{id}")
-    public String getFormModifierExemplaire(@PathVariable(value = "id") Long idExemplaire, Model model) {
+    @GetMapping(value = "exemplaires/{idExemplaire}")
+    public String getFormModifierExemplaire(@PathVariable Long idExemplaire, Model model) {
         Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
         model.addAttribute("exemplaire", exemplaire);
         return "formModifierExemplaire";
     }
 
-    @PostMapping(value = "/ajouterExemplaire")
-    public String ajouterExemplaire(@RequestParam("id") Long idOeuvre) {
+    @PostMapping(value = "exemplaires")
+    public String ajouterExemplaire(Long idOeuvre) {
         exemplaireService.ajouterExemplaire(idOeuvre);
-        return "redirect:exemplaires";
+        return "redirect:/exemplaires";
     }
 
-    @PutMapping(value = "/modifierExemplaire/{id}/edit")
-    public String modifierExemplaire(@RequestParam("id") String idExemplaire, EtatExemplaire etat) {
+    @PutMapping(value = "exemplaires/{idExemplaire}/edit")
+    public String modifierExemplaire(@PathVariable String idExemplaire, EtatExemplaire etat) {
         exemplaireService.modifierExemplaire(Long.valueOf(idExemplaire), etat);
-        return "redirect:exemplaires";
+        return "redirect:/exemplaires";
     }
 
-    @DeleteMapping(value = "/supprimerExemplaire/{id}/delete")
-    public String supprimerExemplaire(@RequestParam("id") Long idExemplaire) {
+    @DeleteMapping(value = "exemplaires/{idExemplaire}")
+    public String supprimerExemplaire(@PathVariable Long idExemplaire) {
         exemplaireService.supprimerExemplaire(idExemplaire);
-        return "redirect:exemplaires";
+        return "redirect:/exemplaires";
     }
 }

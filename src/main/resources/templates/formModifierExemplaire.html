@@ -1,48 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
     <meta charset="UTF-8"/>
-    <title>Mise à jour de l'usager</title>
+    <title>Mise à jour de l'exemplaire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></link>
 </head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
-        <p class="title">Mise à jour de l'usager suivant : <span th:text="${usager.nom}"></span> <span th:text="${usager.prenom}"></span></p>
-        <form th:action="@{/usager}" th:method="put">
-            <input type="hidden" name="id" th:value="${usager.idUsager}" />
+        <p class="title">Mise à jour de l'exemplaire suivant : <span th:text="${exemplaire.nom}"></span> <span th:text="${exemplaire.prenom}"></span></p>
+        <form th:action="@{/exemplaires/__{exemplaire.idExemplaire}__}" th:method="put">
             <div class="field">
-                <label class="label">Prénom</label>
+                <label class="label">Titre de l'oeuvre</label>
                 <div class="control">
-                    <input class="input" type="text" name="prenom" th:value="${usager.prenom}" />
+                    <input class="input" type="text" name="titre" th:value="${exemplaire.titre}" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Nom</label>
+                <label class="label">Auteur(s) de l'oeuvre</label>
                 <div class="control">
-                    <input class="input" type="text" name="nom" th:value="${usager.nom}" />
+                    <input class="input" type="text" name="auteur" th:value="${exemplaire.auteur}" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Adresse</label>
+                <label class="label">Etat</label>
                 <div class="control">
-                    <input class="input" type="text" name="adresse" th:value="${usager.adresse}" />
+                    <input class="input" type="text" name="etat" th:value="${exemplaire.etat}" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Mail</label>
+                <label class="label">Statut</label>
                 <div class="control">
-                    <input class="input" type="email" name="mail" th:value="${usager.mail}" />
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Téléphone</label>
-                <div class="control">
-                    <input class="input" type="tel" name="telephone" th:value="${usager.telephone}" />
+                    <input class="input" type="text" name="statut" th:value="${exemplaire.statut}" />
                 </div>
             </div>
 

@@ -14,6 +14,16 @@ public class Exemplaire implements Serializable {
 	private Long idExemplaire;
 	private Long idOeuvre;
 	private String etat;
+
+	public String getStatut() {
+		return statut;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
+
+	private String statut;
 	private Long idEmprunt;
 
 
