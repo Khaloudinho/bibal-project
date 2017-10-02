@@ -4,7 +4,7 @@
 * BOUGUETTOUCHA Khaled
 
 # Project 
-BibalSpringMVC is a library manager web app
+Bibal is a library manager web app
 
 ## Prerequisites
 
