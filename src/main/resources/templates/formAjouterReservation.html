@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Création d'une oeuvre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"/>
+
+    <!-- autocompletion : jquery autocomplete -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- input pour les dates sympathiques : flatpickr-->
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
+    <script src="https://unpkg.com/flatpickr"></script>
+    <script>
+        $(function () {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
+</head>
+<body>
+<section>
+    <div class="container">
+        <p class="title">Création d'une réservation</p>
+        <form th:action="@{/reservations}" th:method="post">
+
+            <!--<div class="field">
+                <label class="label">Usager</label>
+                <div class="control">
+                    <input class="input" type="text" name="usager" placeholder="bertran95u"/>
+                </div>
+            </div>-->
+
+            <div class="field">
+                <label class="label">Usager</label>
+                <div class="control">
+                    <div class="select">
+                        <select th:name="idUsager">
+                            <option th:each="usager:${usagers}" th:value="${usager.idUsager}"
+                                    th:text="${usager.nom}+' '+${usager.prenom}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="field">
+                <label class="label">Oeuvre</label>
+                <div class="control">
+                    <input class="input" type="text" name="oeuvre" placeholder="Cracking The Code Interview"/>
+                </div>
+            </div>-->
+            <div class="field">
+                <label class="label">Oeuvre</label>
+                <div class="control">
+                    <div class="select">
+                        <div class="select">
+                            <select th:name="idOeuvre">
+                                <option th:each="oeuvre:${oeuvres}" th:value="${oeuvre.idOeuvre}"
+                                        th:text="${oeuvre.titre}"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Date de réservation</label>
+                <div class="control">
+                    <input autocomplete="off" type="date" class="datereservation input" name="date"
+                           placeholder="Date de réservation" value=""/>
+                </div>
+            </div>
+
+            <div class="ui-widget">
+                <label for="tags">Tags: </label>
+                <input id="tags"/>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-primary">Valider</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script type="application/javascript">
+    flatpickr('.datereservation', {});
+</script>
+</body>
+</html>
