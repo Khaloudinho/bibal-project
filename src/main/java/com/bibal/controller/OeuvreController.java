@@ -40,14 +40,12 @@ public class OeuvreController {
         return "formAjouterOeuvre";
     }
 
-    /*
-    @GetMapping(value = "/getFormModifierOeuvre/{id}")
-    public String getFormModifierOeuvre(@PathVariable(value = "id") Long idOeuvre, Model model) {
+    @GetMapping(value = "oeuvres/{idOeuvre}/edit")
+    public String getFormModifierOeuvre(@PathVariable Long idOeuvre, Model model) {
         Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
         model.addAttribute("oeuvre", oeuvre);
         return "formModifierOeuvre";
     }
-    */
 
     @PostMapping(value = "oeuvres")
     public String ajouterOeuvre(String titre, String auteur, String genre) {
@@ -55,7 +53,7 @@ public class OeuvreController {
         return "redirect:/oeuvres";
     }
 
-    @PutMapping(value = "oeuvres/{idOeuvre}/edit")
+    @PutMapping(value = "oeuvres/{idOeuvre}")
     public String modifierOeuvre(@PathVariable String idOeuvre, String titre, String auteur, String genre) {
         oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, genre);
         return "redirect:/oeuvres";

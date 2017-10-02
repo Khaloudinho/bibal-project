@@ -34,7 +34,7 @@ public class UsagerController {
 		return "formAjouterUsager";
 	}
 
-	@PostMapping(value = "ajouterUsager")
+	@PostMapping(value = "usagers")
 	public String ajouterUsager(String prenom, String nom, String adresse, String mail, String telephone) {
 		usagerService.ajouterUsager(nom, prenom, adresse, mail, telephone);
 		return "redirect:usagers";
