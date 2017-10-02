@@ -21,47 +21,49 @@ public class OeuvreController {
     @Autowired
     private OeuvreService oeuvreService;
 
-    @GetMapping(value = "/oeuvres")
+    @GetMapping(value = "oeuvres")
     public String recupererToutesLesOeuvres(Model model) {
         List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
         model.addAttribute("oeuvres", oeuvres);
         return "oeuvres";
     }
 
-    @GetMapping(value = "/oeuvre/{titre}")
-    public String recupererOeuvreViaTitre(@RequestParam("titre") String titre, Model model) {
-        List<Oeuvre> oeuvres = oeuvreService.recupererOeuvreViaTitre(titre);
+    @GetMapping(value = "oeuvres/{titre}")
+    public String recupererOeuvresViaTitre(@PathVariable String titre, Model model) {
+        List<Oeuvre> oeuvres = oeuvreService.recupererOeuvresViaTitre(titre);
         model.addAttribute("oeuvres", oeuvres);
         return "oeuvres";
     }
 
-    @GetMapping(value = "/getFormAjouterOeuvre")
+    @GetMapping(value = "oeuvres/create")
     public String getFormAjouterOeuvre() {
         return "formAjouterOeuvre";
     }
 
+    /*
     @GetMapping(value = "/getFormModifierOeuvre/{id}")
     public String getFormModifierOeuvre(@PathVariable(value = "id") Long idOeuvre, Model model) {
         Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
         model.addAttribute("oeuvre", oeuvre);
         return "formModifierOeuvre";
     }
+    */
 
-    @PostMapping(value = "/ajouterOeuvre")
-    public String ajouterOeuvre(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("genre") String genre) {
+    @PostMapping(value = "oeuvres")
+    public String ajouterOeuvre(String titre, String auteur, String genre) {
         oeuvreService.ajouterOeuvre(titre, auteur, genre);
-        return "redirect:oeuvres";
+        return "redirect:/oeuvres";
     }
 
-    @PutMapping(value = "/modifierOeuvre/{id}/edit")
-    public String modifierOeuvre(@RequestParam("id") String idOeuvre, @RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("genre") String genre) {
+    @PutMapping(value = "oeuvres/{idOeuvre}/edit")
+    public String modifierOeuvre(@PathVariable String idOeuvre, String titre, String auteur, String genre) {
         oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, genre);
-        return "redirect:oeuvres";
+        return "redirect:/oeuvres";
     }
 
-    @DeleteMapping(value = "/supprimerOeuvre/{id}/delete")
-    public String supprimerOeuvre(@RequestParam("id") Long idOeuvre) {
+    @DeleteMapping(value = "oeuvres/{idOeuvre}")
+    public String supprimerOeuvre(@PathVariable Long idOeuvre) {
         oeuvreService.supprimerOeuvre(idOeuvre);
-        return "redirect:oeuvres";
+        return "redirect:/oeuvres";
     }
 }

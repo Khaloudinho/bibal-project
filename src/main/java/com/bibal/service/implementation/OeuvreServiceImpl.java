@@ -27,8 +27,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 
 	@Override
-	public List<Oeuvre> recupererOeuvreViaTitre(String titre) {
-	    return oeuvreRepository.recupererOeuvreViaTitre(titre);
+	public List<Oeuvre> recupererOeuvresViaTitre(String titre) {
+	    return oeuvreRepository.recupererOeuvresViaTitre(titre);
 	}
 
 	@Override

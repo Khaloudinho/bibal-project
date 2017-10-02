@@ -15,5 +15,5 @@ import java.util.List;
 public interface OeuvreRepository extends JpaRepository<Oeuvre, Long> {
 	
 	@Query("SELECT o FROM Oeuvre o WHERE o.titre LIKE %:x%")
-	List<Oeuvre> recupererOeuvreViaTitre(@Param("x") String titre);
+	List<Oeuvre> recupererOeuvresViaTitre(@Param("x") String titre);
 }
