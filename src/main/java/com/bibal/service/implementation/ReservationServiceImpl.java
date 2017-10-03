@@ -10,6 +10,7 @@ import com.bibal.dao.ReservationRepository;
 import com.bibal.metier.Oeuvre;
 import com.bibal.metier.Reservation;
 import com.bibal.service.interfaces.ReservationService;
+import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,27 +27,28 @@ public class ReservationServiceImpl implements ReservationService {
 	private ReservationRepository reservationRepository;
 
 	@Override
-	public List<Reservation> findAll() {
+	public List<Reservation> recupererToutesLesReservations() {
 		return reservationRepository.findAll();
 	}
 
 	@Override
-	public Reservation getById(Long idReservation) {
+	public Reservation recupererReservationViaID(Long idReservation) {
 		return reservationRepository.findOne(idReservation);
 	}
 
 	@Override
-	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre) {
-		Reservation reservation = new Reservation(date, usager, oeuvre);
+	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre, String statut) {
+		Reservation reservation = new Reservation(date, usager, oeuvre, statut);
 		reservationRepository.save(reservation);
 	}
 
 	@Override
-	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre) {
-		Reservation reservation = getById(idReservation);
+	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut) {
+		Reservation reservation = recupererReservationViaID(idReservation);
 		reservation.setDate(date);
 		reservation.setUsager(usager);
 		reservation.setOeuvre(oeuvre);
+		reservation.setStatut(String.valueOf(statut));
 		return reservation;
 	}
 

@@ -1,12 +1,12 @@
 package com.bibal.controller;
 
-import java.sql.Date;
-import java.util.List;
-import java.util.Set;
-
+import com.bibal.metier.Emprunt;
 import com.bibal.metier.Oeuvre;
+import com.bibal.metier.Reservation;
 import com.bibal.metier.Usager;
+import com.bibal.service.interfaces.EmpruntService;
 import com.bibal.service.interfaces.OeuvreService;
+import com.bibal.service.interfaces.ReservationService;
 import com.bibal.service.interfaces.UsagerService;
 import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,34 +15,30 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
-import com.bibal.metier.Reservation;
-import com.bibal.service.interfaces.ReservationService;
+import java.sql.Date;
+import java.util.List;
 
 @Configuration
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class ReservationController {
+public class EmpruntController {
 
 	@Autowired
-	private ReservationService reservationService;
+	private EmpruntService empruntService;
 
-	@Autowired
-	private UsagerService usagerService;
-
-	@Autowired
-	private OeuvreService oeuvreService;
-
-
-	@GetMapping("/reservations")
-	public String recupererToutesLesReservations(Model model) {
-		List<Reservation> reservations = reservationService.recupererToutesLesReservations();
-		model.addAttribute("reservations", reservations);
-		return "reservations";
+	@GetMapping("/emprunts")
+	public String recupererTousLesEmprunts(Model model) {
+		List<Emprunt> emprunts = empruntService.recupererTousLesEmprunts();
+		model.addAttribute("emprunts", emprunts);
+		return "emprunts";
 	}
-
+/*
 	@GetMapping("/reservations/create")
 	public String getFormCreationReservation(Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
@@ -79,4 +75,5 @@ public class ReservationController {
 		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre, statut);
 		return "redirect:/reservations";
 	}
+	*/
 }

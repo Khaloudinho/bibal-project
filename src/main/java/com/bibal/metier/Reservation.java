@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.bibal.util.EtatUsager;
+import com.bibal.util.StatutReservation;
 
 @Entity
 public class Reservation implements Serializable{
@@ -15,6 +16,7 @@ public class Reservation implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idReservation;
 	private Date date;
+	private String statut;
 
 	@ManyToOne
 	@JoinColumn(name = "idUsager")
@@ -24,13 +26,22 @@ public class Reservation implements Serializable{
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	public Reservation(Date date, Usager usager, Oeuvre oeuvre) {
+	public Reservation(Date date, Usager usager, Oeuvre oeuvre, String statut) {
 		this.date = date;
 		this.usager = usager;
 		this.oeuvre = oeuvre;
+		this.statut = statut;
 	}
 
 	public Reservation() {
+	}
+
+	public String getStatut() {
+		return statut;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
 	}
 
 	public Long getIdReservation() {

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Création d'une oeuvre</title>
+    <style>th, td { text-align: center; }</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"/>
 
     <!-- autocompletion : jquery autocomplete -->
@@ -12,7 +13,7 @@
     <!-- input pour les dates sympathiques : flatpickr-->
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
     <script src="https://unpkg.com/flatpickr"></script>
-    <script>
+    <!--<script>
         $(function () {
             var availableTags = [
                 "ActionScript",
@@ -42,7 +43,7 @@
                 source: availableTags
             });
         });
-    </script>
+    </script>-->
 </head>
 
 <body>
@@ -51,15 +52,8 @@
         <p class="title">Création d'une réservation</p>
         <form th:action="@{/reservations}" th:method="post">
 
-            <!--<div class="field">
-                <label class="label">Usager</label>
-                <div class="control">
-                    <input class="input" type="text" name="usager" placeholder="bertran95u"/>
-                </div>
-            </div>-->
-
             <div class="field">
-                <label class="label">Usager</label>
+                <label class="label">Usager sélectionné</label>
                 <div class="control">
                     <div class="select">
                         <select th:name="idUsager">
@@ -76,7 +70,7 @@
                 </div>
             </div>-->
             <div class="field">
-                <label class="label">Oeuvre</label>
+                <label class="label">Oeuvre sélectionnée</label>
                 <div class="control">
                     <div class="select">
                         <div class="select">
@@ -92,11 +86,18 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" class="datereservation input" name="date"
-                           placeholder="Date de réservation" value=""/>
+                    <input autocomplete="off" type="date" class="datereservation input" name="date" placeholder="Date de réservation" value="" />
                 </div>
             </div>
 
+            <div class="field">
+                <label class="label">Statut de la réservation</label>
+                <div class="select">
+                    <select th:name="statut">
+                        <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}" th:value="${statut}" th:text="${statut}"></option>
+                    </select>
+                </div>
+            </div>
             <!--
             <div class="ui-widget">
                 <label for="tags">Tags: </label>
@@ -113,7 +114,7 @@
     </div>
 </section>
 <script type="application/javascript">
-    flatpickr('.datereservation', {});
+    flatpickr('.datereservation',{});
 </script>
 </body>
 </html>

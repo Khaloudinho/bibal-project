@@ -6,12 +6,13 @@ import java.util.List;
 import com.bibal.metier.Oeuvre;
 import com.bibal.metier.Reservation;
 import com.bibal.metier.Usager;
+import com.bibal.util.StatutReservation;
 
 public interface ReservationService {
 
-	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre);
-	public List<Reservation> findAll();
-	public Reservation getById(Long idUsager);
-	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre);
+	void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre, String statut);
+	List<Reservation> recupererToutesLesReservations();
+	Reservation recupererReservationViaID(Long idUsager);
+	Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut);
 
 }
