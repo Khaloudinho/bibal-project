@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
- 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 	  
- 	  layout:decorator="template">	  
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
  	<head>
 		<meta charset="utf-8" />	
   		<title>Accueil</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></link>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 	</head>
 	<body>
 	<section layout:fragment="custom-content">
-		<img th:src="@{/images/bibliotheque.jpg}" alt="bibliotheque image" style="padding: 2% 25% 2% 25%" />
-		<p>ADD SOME STATS ABOUT OUR BIBAL APP ? </p>
+		<p style="text-align: center; font-size: 18px;">
+			Bienvenue sur notre site concernet le projet "Bibal".<br />
+			L'objectif de ce projet est de gérer le système d'information relatif à une bibliothèque.<br />
+			Cette réalisation a été effectuée dans le cadre du cours d'applications distribuées.
+		</p>
+		<br />
+		<br />
+		<p>
+			<img th:src="@{/images/bibliotheque.jpg}" alt="bibliotheque image" style="display:block; margin:0 auto; width:800px; height:400px;" />
+		</p>
+		<!-- ADD SOME STATS ABOUT OUR BIBAL APP ? -->
     </section>
 </body>
 </html>

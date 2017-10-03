@@ -2,6 +2,7 @@ package com.bibal.metier;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,18 +18,21 @@ public class Oeuvre implements Serializable {
 
 	@OneToMany
 	@JoinColumn(name = "idOeuvre", referencedColumnName = "idOeuvre")
-	private Set<Reservation> setReservations;
+	private Set<Reservation> listeReservations;
 
+	@OneToMany
+	@JoinColumn(name = "idExemplaire")
+	private Set<Exemplaire> listeExemplaires;
 
 	public Oeuvre() {}
 
-	public Oeuvre(String titre, String auteur, String genre, Set<Reservation> setReservations) {
+	public Oeuvre(String titre, String auteur, String genre) {
 		this.titre = titre;
 		this.auteur = auteur;
 		this.genre = genre;
-		this.setReservations = setReservations;
+		this.listeReservations = new HashSet<Reservation>();
+		this.listeExemplaires = new HashSet<Exemplaire>();
 	}
-
 
 	public Long getIdOeuvre() {
 		return idOeuvre;
@@ -63,10 +67,10 @@ public class Oeuvre implements Serializable {
 	}
 
 	public Set<Reservation> getSetReservations() {
-		return setReservations;
+		return listeReservations;
 	}
 
-	public void setSetReservations(Set<Reservation> setReservations) {
-		this.setReservations = setReservations;
+	public void setReservations(Set<Reservation> listeReservations) {
+		this.listeReservations = listeReservations;
 	}
 }

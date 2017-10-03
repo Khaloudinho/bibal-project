@@ -19,7 +19,7 @@
             </div>
         </form>
         <div th:action="@{/oeuvres}" method="get">
-            <table class="table table-striped table-bordered" cellspacing="0">
+            <table class="table table-striped table-bordered" cellspacing="0" style="text-align: center">
                 <thead>
                 <tr>
                     <th>Titre</th>
@@ -31,9 +31,9 @@
                 </thead>
                 <tbody>
                 <tr class="odd" role="row" th:each="o:${oeuvres}" th:id="${o.idOeuvre}">
-                    <td style="text-align: center" th:text="${o.titre}"></td>
-                    <td style="text-align: center" th:text="${o.auteur}"></td>
-                    <td style="text-align: center" th:text="${o.genre}"></td>
+                    <td th:text="${o.titre}"></td>
+                    <td th:text="${o.auteur}"></td>
+                    <td th:text="${o.genre}"></td>
                     <td>
                         <form th:action="@{/oeuvres/__${o.idOeuvre}__/edit}" th:method="get">
                             <div class="field">

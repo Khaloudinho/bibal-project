@@ -3,6 +3,7 @@ package com.bibal.service.implementation;
 import com.bibal.dao.ExemplaireRepository;
 import com.bibal.metier.Exemplaire;
 import com.bibal.service.interfaces.ExemplaireService;
+import com.bibal.service.interfaces.OeuvreService;
 import com.bibal.util.EtatExemplaire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,9 @@ public class ExemplaireServiceImpl implements ExemplaireService {
 	@Autowired
 	private ExemplaireRepository exemplaireRepository;
 
+	@Autowired
+	private OeuvreService oeuvreService;
+
 	@Override
 	public List<Exemplaire> recupererTousLesExemplaires() {
 	    return exemplaireRepository.findAll();
@@ -28,8 +32,8 @@ public class ExemplaireServiceImpl implements ExemplaireService {
 	}
 
 	@Override
-	public void ajouterExemplaire(Long idOeuvre) {
-		Exemplaire exemplaire = new Exemplaire(idOeuvre, String.valueOf(EtatExemplaire.Neuf));
+	public void ajouterExemplaire(Long idOeuvre, String etat) {
+		Exemplaire exemplaire = new Exemplaire(oeuvreService.recupererOeuvreViaID(idOeuvre), etat);
 		exemplaireRepository.save(exemplaire);
 	}
 

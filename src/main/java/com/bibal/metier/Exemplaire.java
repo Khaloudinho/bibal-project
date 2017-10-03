@@ -1,10 +1,9 @@
 package com.bibal.metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Exemplaire implements Serializable {
@@ -12,32 +11,23 @@ public class Exemplaire implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idExemplaire;
-	private Long idOeuvre;
+
+	@ManyToOne
+	@JoinColumn(name = "idOeuvre")
+	private Oeuvre oeuvre;
+
+	//@ManyToMany
+	//@JoinColumn(name = "idEmprunt")
+	//private Set<Emprunt> listeEmprunts;
+
 	private String etat;
-
-	public String getStatut() {
-		return statut;
-	}
-
-	public void setStatut(String statut) {
-		this.statut = statut;
-	}
-
-	private String statut;
-	private Long idEmprunt;
-
 
 	public Exemplaire() {}
 
-	public Exemplaire(Long idOeuvre, String etat) {
-		this.idOeuvre = idOeuvre;
+	public Exemplaire(Oeuvre oeuvre, String etat) {
+		this.oeuvre = oeuvre;
+		//this.listeEmprunts = new HashSet<Emprunt>();
 		this.etat = etat;
-	}
-
-	public Exemplaire(Long idOeuvre, String etat, Long idEmprunt) {
-		this.idOeuvre = idOeuvre;
-		this.etat = etat;
-		this.idEmprunt = idEmprunt;
 	}
 
 	public Long getIdExemplaire() {
@@ -48,12 +38,12 @@ public class Exemplaire implements Serializable {
 		this.idExemplaire = idExemplaire;
 	}
 
-	public Long getIdOeuvre() {
-		return idOeuvre;
+	public Oeuvre getOeuvre() {
+		return oeuvre;
 	}
 
-	public void setIdOeuvre(Long idOeuvre) {
-		this.idOeuvre = idOeuvre;
+	public void setOeuvre(Oeuvre oeuvre) {
+		this.oeuvre = oeuvre;
 	}
 
 	public String getEtat() {
@@ -62,13 +52,5 @@ public class Exemplaire implements Serializable {
 
 	public void setEtat(String etat) {
 		this.etat = etat;
-	}
-
-	public Long getIdEmprunt() {
-		return idEmprunt;
-	}
-
-	public void setIdEmprunt(Long idEmprunt) {
-		this.idEmprunt = idEmprunt;
 	}
 }

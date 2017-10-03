@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
     <meta charset="UTF-8"/>
-    <title>Création d'un usager</title>
+    <title>Création d'un exemplaire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
 
@@ -12,32 +12,27 @@
         <p class="title">Création d'un exemplaire</p>
         <form th:action="@{/exemplaires}" method="post">
             <div class="field">
-                <label class="label">Titre de l'oeuvre</label>
+                <label class="label">Oeuvre sélectionnée</label>
                 <div class="control">
-                    <input class="input" type="text" name="titre" placeholder="Une romance à Dunkerque" />
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Auteur(s) de l'oeuvre</label>
-                <div class="control">
-                    <input class="input" type="text" name="auteur" placeholder="C. Barbier" />
+                    <div class="select">
+                            <select th:name="idOeuvre">
+                                <option th:each="oeuvre:${oeuvres}" th:value="${oeuvre.idOeuvre}" th:text="${oeuvre.titre}"></option>
+                            </select>
+                    </div>
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Etat de l'exemplaire</label>
-                <div class="control">
-                    <input class="input" type="text" name="etat" placeholder="Neuf" />
+                <div class="select">
+                    <select th:name="etat">
+                        <option th:value="Ancien" th:text="Ancien"></option>
+                        <option th:value="Neuf" th:text="Neuf"></option>
+                        <option th:value="Usagé" th:text="Usagé"></option>
+                    </select>
                 </div>
             </div>
 
-            <div class="field">
-                <label class="label">Statut de l'exemplaire</label>
-                <div class="control">
-                    <input class="input" type="email" name="statut" placeholder="Disponible" />
-                </div>
-            </div>
             <div class="field">
                 <div class="control">
                     <button class="button is-primary">Valider</button>

@@ -3,39 +3,29 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Mise à jour de l'exemplaire</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
 </head>
 
 <body>
 <section layout:fragment="custom-content">
     <div class="container">
-        <p class="title">Mise à jour de l'exemplaire suivant : <span th:text="${exemplaire.nom}"></span> <span th:text="${exemplaire.prenom}"></span></p>
-        <form th:action="@{/exemplaires/__{exemplaire.idExemplaire}__}" th:method="put">
+        <p class="title">Mise à jour de l'exemplaire n°<span th:text="${exemplaire.idExemplaire}"></span> de l'oeuvre <span th:text="${exemplaire.oeuvre.titre}"></span></p>
+        <form th:action="@{/exemplaires/__${exemplaire.idExemplaire}__}" th:method="put">
             <div class="field">
-                <label class="label">Titre de l'oeuvre</label>
+                <label class="label">Oeuvre sélectionnée</label>
                 <div class="control">
-                    <input class="input" type="text" name="titre" th:value="${exemplaire.titre}" />
+                    <input class="input" type="text" name="oeuvre" disabled="disabled" th:value="${exemplaire.oeuvre.titre}" />
                 </div>
             </div>
 
             <div class="field">
-                <label class="label">Auteur(s) de l'oeuvre</label>
-                <div class="control">
-                    <input class="input" type="text" name="auteur" th:value="${exemplaire.auteur}" />
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Etat</label>
-                <div class="control">
-                    <input class="input" type="text" name="etat" th:value="${exemplaire.etat}" />
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Statut</label>
-                <div class="control">
-                    <input class="input" type="text" name="statut" th:value="${exemplaire.statut}" />
+                <label class="label">Etat de l'exemplaire</label>
+                <div class="select">
+                    <select th:name="etat">
+                        <option th:value="Ancien" th:text="Ancien"></option>
+                        <option th:value="Neuf" th:text="Neuf"></option>
+                        <option th:value="Usagé" th:text="Usagé"></option>
+                    </select>
                 </div>
             </div>
 

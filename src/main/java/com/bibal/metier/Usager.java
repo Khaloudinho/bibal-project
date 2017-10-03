@@ -2,11 +2,9 @@ package com.bibal.metier;
 
 import com.bibal.util.EtatUsager;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Usager implements Serializable{
@@ -21,7 +19,11 @@ public class Usager implements Serializable{
 	private String telephone;
 	// private int nombreSuspensions;
 	// private String etat;
-	
+
+	@OneToMany
+	@JoinColumn(name = "idReservation")
+	private List<Reservation> listeReservations;
+
 	public Usager() {
 		super();
 		// etat = EtatUsager.Client.toString();
@@ -34,7 +36,7 @@ public class Usager implements Serializable{
 		this.prenom = prenom;
 		this.mail = mail;
 		this.telephone = telephone;
-		this.adresse=adresse;
+		this.adresse = adresse;
 		// this.etat = EtatUsager.Client.toString();
 		// this.nombreSuspensions = 0;
 	}

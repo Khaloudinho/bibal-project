@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>Bibal</name>
-	<description>Bibal project Khaled et Guillaume</description>
+	<description>Bibal project made by Khaled and Guillaume</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

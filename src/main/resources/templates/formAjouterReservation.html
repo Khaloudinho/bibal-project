@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="template">
 <head>
     <meta charset="UTF-8"/>
     <title>Création d'une oeuvre</title>
@@ -44,8 +44,9 @@
         });
     </script>
 </head>
+
 <body>
-<section>
+<section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Création d'une réservation</p>
         <form th:action="@{/reservations}" th:method="post">
@@ -63,7 +64,7 @@
                     <div class="select">
                         <select th:name="idUsager">
                             <option th:each="usager:${usagers}" th:value="${usager.idUsager}"
-                                    th:text="${usager.nom}+' '+${usager.prenom}"></option>
+                                    th:text="${usager.prenom}+' '+${usager.nom}"></option>
                         </select>
                     </div>
                 </div>
@@ -96,10 +97,12 @@
                 </div>
             </div>
 
+            <!--
             <div class="ui-widget">
                 <label for="tags">Tags: </label>
                 <input id="tags"/>
             </div>
+            -->
 
             <div class="field">
                 <div class="control">

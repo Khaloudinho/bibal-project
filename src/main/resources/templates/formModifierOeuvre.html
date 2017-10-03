@@ -11,7 +11,6 @@
     <div class="container">
         <p class="title">Mise à jour de l'oeuvre <span th:text="${oeuvre.titre}"></span></p>
         <form th:action="@{/oeuvres/__${oeuvre.idOeuvre}__}" th:method="put">
-            <input type="hidden" name="id" th:value="${oeuvre.idOeuvre}" />
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
