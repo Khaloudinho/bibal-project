@@ -37,8 +37,8 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre, String statut) {
-		Reservation reservation = new Reservation(date, usager, oeuvre, statut);
+	public void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre) {
+		Reservation reservation = new Reservation(date, usager, oeuvre);
 		reservationRepository.save(reservation);
 	}
 
@@ -48,7 +48,7 @@ public class ReservationServiceImpl implements ReservationService {
 		reservation.setDate(date);
 		reservation.setUsager(usager);
 		reservation.setOeuvre(oeuvre);
-		reservation.setStatut(String.valueOf(statut));
+		reservation.setStatut(statut);
 		return reservation;
 	}
 

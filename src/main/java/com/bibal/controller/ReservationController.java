@@ -53,10 +53,10 @@ public class ReservationController {
 	}
 
 	@PostMapping(value = "/reservations")
-	public String ajouterReservation(Date date, Long idUsager, Long idOeuvre, String statut) {
+	public String ajouterReservation(Date date, Long idUsager, Long idOeuvre) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
-		reservationService.ajouterReservation(date, usager, oeuvre, statut);
+		reservationService.ajouterReservation(date, usager, oeuvre);
 		return "redirect:/reservations";
 	}
 

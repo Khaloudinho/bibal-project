@@ -10,7 +10,7 @@ import com.bibal.util.StatutReservation;
 
 public interface ReservationService {
 
-	void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre, String statut);
+	void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre);
 	List<Reservation> recupererToutesLesReservations();
 	Reservation recupererReservationViaID(Long idUsager);
 	Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut);

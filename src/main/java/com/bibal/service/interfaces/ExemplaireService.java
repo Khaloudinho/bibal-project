@@ -12,7 +12,7 @@ public interface ExemplaireService {
 	Exemplaire recupererExemplaireViaID(Long idExemplaire);
 
 	// POST
-	void ajouterExemplaire(Long idOeuvre, String etat);
+	void ajouterExemplaire(Long idOeuvre, EtatExemplaire etat);
 
 	// PUT
 	Exemplaire modifierExemplaire(Long idExemplaire, EtatExemplaire etat);

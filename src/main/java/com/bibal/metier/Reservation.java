@@ -10,13 +10,12 @@ import com.bibal.util.EtatUsager;
 import com.bibal.util.StatutReservation;
 
 @Entity
-public class Reservation implements Serializable{
+public class Reservation implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idReservation;
 	private Date date;
-	private String statut;
 
 	@ManyToOne
 	@JoinColumn(name = "idUsager")
@@ -26,21 +25,23 @@ public class Reservation implements Serializable{
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	public Reservation(Date date, Usager usager, Oeuvre oeuvre, String statut) {
+	@Enumerated(EnumType.STRING)
+	private StatutReservation statut;
+
+	public Reservation() {}
+
+	public Reservation(Date date, Usager usager, Oeuvre oeuvre) {
 		this.date = date;
 		this.usager = usager;
 		this.oeuvre = oeuvre;
-		this.statut = statut;
+		this.statut = StatutReservation.Encours;
 	}
 
-	public Reservation() {
-	}
-
-	public String getStatut() {
+	public StatutReservation getStatut() {
 		return statut;
 	}
 
-	public void setStatut(String statut) {
+	public void setStatut(StatutReservation statut) {
 		this.statut = statut;
 	}
 
