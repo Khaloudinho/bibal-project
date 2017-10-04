@@ -1,13 +1,7 @@
 package com.bibal.controller;
 
-import com.bibal.metier.Emprunt;
-import com.bibal.metier.Oeuvre;
-import com.bibal.metier.Reservation;
-import com.bibal.metier.Usager;
-import com.bibal.service.interfaces.EmpruntService;
-import com.bibal.service.interfaces.OeuvreService;
-import com.bibal.service.interfaces.ReservationService;
-import com.bibal.service.interfaces.UsagerService;
+import com.bibal.metier.*;
+import com.bibal.service.interfaces.*;
 import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,10 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -32,30 +23,41 @@ public class EmpruntController {
 	@Autowired
 	private EmpruntService empruntService;
 
-	@GetMapping("/emprunts")
+	@Autowired
+	private UsagerService usagerService;
+
+	@Autowired
+	private OeuvreService oeuvreService;
+
+	@Autowired
+	private ExemplaireService exemplaireService;
+
+	@GetMapping("emprunts")
 	public String recupererTousLesEmprunts(Model model) {
 		List<Emprunt> emprunts = empruntService.recupererTousLesEmprunts();
 		model.addAttribute("emprunts", emprunts);
 		return "emprunts";
 	}
-/*
-	@GetMapping("/reservations/create")
-	public String getFormCreationReservation(Model model) {
+
+	@GetMapping("emprunts/create")
+	public String getFormCreationEmprunt(Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
+		List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplaires();
 		model.addAttribute("usagers", usagers);
 		model.addAttribute("oeuvres", oeuvres);
-		return "formAjouterReservation";
+		model.addAttribute("exemplaires", exemplaires);
+		return "formAjouterEmprunt";
 	}
 
-	@PostMapping(value = "/reservations")
-	public String ajouterReservation(Date date, Long idUsager, Long idOeuvre, String statut) {
+	@PostMapping(value = "/emprunts")
+	public String ajouterEmprunt(Date date, Long idUsager, Long idExemplaire) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
-		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
-		reservationService.ajouterReservation(date, usager, oeuvre, statut);
+		Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
+		empruntService.ajouterEmprunt(date, usager, exemplaire);
 		return "redirect:/reservations";
 	}
-
+/*
 
 	@GetMapping(value = "/reservations/{idUsager}/edit")
 	public String getFormModifierUsager(@PathVariable Long idUsager, Model model) {

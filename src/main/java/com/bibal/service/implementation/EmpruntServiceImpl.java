@@ -25,18 +25,18 @@ public class EmpruntServiceImpl implements EmpruntService {
 		return empruntRepository.findAll();
 	}
 
-	/*
+
 	@Override
 	public Emprunt recupererEmpruntViaID(Long idEmprunt) {
 		return empruntRepository.findOne(idEmprunt);
 	}
 
 	@Override
-	public void ajouterEmprunt(Date date, Usager usager, Oeuvre oeuvre, String statut) {
-		Emprunt emprunt = new Emprunt(date, usager, oeuvre, statut);
+	public void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire) {
+		Emprunt emprunt = new Emprunt(date, usager, exemplaire);
 		empruntRepository.save(emprunt);
 	}
-
+/*
 	@Override
 	public Emprunt modifierEmprunt(Long idEmprunt, Date date, Usager usager, Exemplaire exemplaire) {
 		Emprunt emprunt = recupererEmpruntViaID(idEmprunt);
