@@ -1,7 +1,7 @@
 package com.bibal.util;
 
 public enum StatutReservation {
-    EN_COURS("En cours"), ANNULEE("Annulée"), ARCHIVEE("Archivée");
+    EN_COURS("En cours"), ANNULEE("Annulée");
 
     private String nom;
 
