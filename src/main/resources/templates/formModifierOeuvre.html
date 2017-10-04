@@ -28,8 +28,14 @@
 
             <div class="field">
                 <label class="label">Genre</label>
-                <div class="control">
-                    <input class="input" type="text" name="genre" th:value="${oeuvre.genre}" />
+                <div class="select">
+                    <select th:name="genre">
+                        <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
+                                th:value="${genre}"
+                                th:text="${genre}">
+                        </option>
+                        <option th:text="${oeuvre.genre}"></option>
+                    </select>
                 </div>
             </div>
 

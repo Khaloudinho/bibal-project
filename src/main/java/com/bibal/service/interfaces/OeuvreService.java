@@ -1,6 +1,7 @@
 package com.bibal.service.interfaces;
 
 import com.bibal.metier.Oeuvre;
+import com.bibal.util.GenreOeuvre;
 
 import java.util.List;
 
@@ -12,10 +13,10 @@ public interface OeuvreService {
 	List<Oeuvre> recupererOeuvresViaTitre(String titre);
 
 	// POST
-	void ajouterOeuvre(String titre, String auteur, String genre);
+	void ajouterOeuvre(String titre, String auteur, GenreOeuvre genre);
 
 	// PUT
-	Oeuvre modifierOeuvre(Long idOeuvre, String titre, String auteur, String genre);
+	Oeuvre modifierOeuvre(Long idOeuvre, String titre, String auteur, GenreOeuvre genre);
 
 	// DELETE
 	void supprimerOeuvre(Long idOeuvre);

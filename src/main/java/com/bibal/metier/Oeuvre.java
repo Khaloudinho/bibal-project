@@ -1,9 +1,10 @@
 package com.bibal.metier;
 
+import com.bibal.util.GenreOeuvre;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,10 +15,12 @@ public class Oeuvre implements Serializable {
 	private Long idOeuvre;
 	private String titre;
 	private String auteur;
-	private String genre;
+
+	@Enumerated(EnumType.STRING)
+	private GenreOeuvre genre;
 
 	@OneToMany
-	@JoinColumn(name = "idOeuvre", referencedColumnName = "idOeuvre")
+	@JoinColumn(name = "idOeuvre")
 	private Set<Reservation> listeReservations;
 
 	@OneToMany
@@ -26,7 +29,7 @@ public class Oeuvre implements Serializable {
 
 	public Oeuvre() {}
 
-	public Oeuvre(String titre, String auteur, String genre) {
+	public Oeuvre(String titre, String auteur, GenreOeuvre genre) {
 		this.titre = titre;
 		this.auteur = auteur;
 		this.genre = genre;
@@ -58,11 +61,11 @@ public class Oeuvre implements Serializable {
 		this.auteur = auteur;
 	}
 
-	public String getGenre() {
+	public GenreOeuvre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(String genre) {
+	public void setGenre(GenreOeuvre genre) {
 		this.genre = genre;
 	}
 
