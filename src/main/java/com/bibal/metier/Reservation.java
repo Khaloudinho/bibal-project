@@ -17,6 +17,9 @@ public class Reservation implements Serializable {
 	private Long idReservation;
 	private Date date;
 
+	@Enumerated(EnumType.STRING)
+	private StatutReservation statut;
+
 	@ManyToOne
 	@JoinColumn(name = "idUsager")
 	private Usager usager;
@@ -25,8 +28,7 @@ public class Reservation implements Serializable {
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	@Enumerated(EnumType.STRING)
-	private StatutReservation statut;
+
 
 	public Reservation() {}
 

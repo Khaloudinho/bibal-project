@@ -32,7 +32,7 @@
 <section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Mise à jour de la réservation n°<span th:text="${reservation.idReservation}"></span></p>
-        <form th:action="@{/reservations}" th:method="put">
+        <form th:action="@{/reservations/__${reservation.idReservation}__}" th:method="put">
             <div class="field">
                 <label class="label">Usager</label>
                 <div class="control">
@@ -71,7 +71,10 @@
                 <label class="label">Statut de la réservation</label>
                 <div class="select">
                     <select th:id="statut" th:name="statut">
-                        <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}" th:value="${statut}" th:text="${statut}"></option>
+                        <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}"
+                                th:value="${statut}"
+                                th:text="${statut}">
+                        </option>
                     </select>
                     <input class="input" type="hidden" id="_statut" th:value="${reservation.statut}" />
                 </div>

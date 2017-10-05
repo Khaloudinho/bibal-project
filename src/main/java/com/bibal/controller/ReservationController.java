@@ -35,14 +35,14 @@ public class ReservationController {
 	@Autowired
 	private OeuvreService oeuvreService;
 
-	@GetMapping("/reservations")
+	@GetMapping("reservations")
 	public String recupererToutesLesReservations(Model model) {
 		List<Reservation> reservations = reservationService.recupererToutesLesReservations();
 		model.addAttribute("reservations", reservations);
 		return "reservations";
 	}
 
-	@GetMapping("/reservations/create")
+	@GetMapping("reservations/create")
 	public String getFormCreationReservation(Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
@@ -51,7 +51,7 @@ public class ReservationController {
 		return "formAjouterReservation";
 	}
 
-	@PostMapping(value = "/reservations")
+	@PostMapping(value = "reservations")
 	public String ajouterReservation(Date date, Long idUsager, Long idOeuvre) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
@@ -59,7 +59,7 @@ public class ReservationController {
 		return "redirect:/reservations";
 	}
 
-	@GetMapping(value = "/reservations/{idUsager}/edit")
+	@GetMapping(value = "reservations/{idUsager}/edit")
 	public String getFormModifierReservation(@PathVariable Long idUsager, Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
@@ -70,8 +70,8 @@ public class ReservationController {
 		return "formModifierReservation";
 	}
 
-	@PutMapping(value = "/reservations")
-	public String modifierReservation(Long idReservation, Date date, Long idUsager, Long idOeuvre, StatutReservation statut) {
+	@PutMapping(value = "reservations/{idReservation}")
+	public String modifierReservation(@PathVariable Long idReservation, Date date, Long idUsager, Long idOeuvre, StatutReservation statut) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
 		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre, statut);
