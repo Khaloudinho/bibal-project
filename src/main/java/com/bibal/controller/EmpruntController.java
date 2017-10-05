@@ -63,9 +63,9 @@ public class EmpruntController {
 	}
 
 	@DeleteMapping(value = "emprunts/{idEmprunt}")
-	public void supprimerUsager(@PathVariable Long idUsager) {
-		/*empruntService.;
-		return "redirect:/emprunts";*/
+	public String archiverEmprunt(@PathVariable Long idEmprunt) {
+		empruntService.archiverEmprunt(idEmprunt);
+		return "redirect:/emprunts";
 	}
 
 }

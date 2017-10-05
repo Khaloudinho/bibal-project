@@ -34,14 +34,14 @@ public class EmpruntServiceImpl implements EmpruntService {
 	}
 
 	@Override
-	public void archiverEmprunt(Long idEmprunt) {
-
-	}
-
-	@Override
 	public void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire) {
 		Emprunt emprunt = new Emprunt(date, usager, exemplaire);
 		empruntRepository.save(emprunt);
+	}
+
+	@Override
+	public void archiverEmprunt(Long idEmprunt){
+		empruntRepository.archiverEmprunt(idEmprunt);
 	}
 /*
 	@Override
