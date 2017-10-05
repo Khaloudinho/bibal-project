@@ -26,6 +26,7 @@
 										<th>Usager</th>
 										<th>N° exemplaire</th>
 										<th>Oeuvre</th>
+										<th>Statut</th>
 										<th>Archiver</th>
 									</tr>
 									</thead>
@@ -36,7 +37,12 @@
 										<td th:text="${emprunt.usager.prenom}+' '+${emprunt.usager.nom}"></td>
 										<td th:text="${emprunt.exemplaire.idExemplaire}"></td>
 										<td th:text="${emprunt.exemplaire.oeuvre.titre}"></td>
-										<td>
+										<!--Better to use enum.. but it is for a demo-->
+										<td th:switch="${emprunt.statut}">
+											<span th:case="true"> Archivé </span>
+											<span th:case="false"> Non archivé </span>
+										</td>
+										<td th:if="${ #strings.equals(emprunt.statut, false)}">
 											<form th:action="@{/emprunts/__${emprunt.idEmprunt}__}" th:method="delete">
 												<div class="field">
 													<div class="control">

@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- input pour les dates sympathiques : flatpickr-->
-    <script src="src/main/resources/lib/flatpickr.js"></script>
+    <script th:src="@{/lib/js/flatpickr.js}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             flatpickr('#date');
@@ -24,8 +24,7 @@
 <section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Création d'une réservation</p>
-        <form th:action="@{reservations}" th:method="post">
-
+        <form th:action="@{/reservations}" th:method="post">
             <div class="field">
                 <label class="label">Usager sélectionné</label>
                 <div class="control">
@@ -54,7 +53,7 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input class="input" id="date" placeholder="Date de réservation" />
+                    <input class="input datereservation" id="date" name="date" placeholder="Date de réservation" />
                 </div>
             </div>
 
@@ -78,5 +77,8 @@
         </form>
     </div>
 </section>
+<script type="application/javascript">
+    flatpickr('.datereservation',{});
+</script>
 </body>
 </html>

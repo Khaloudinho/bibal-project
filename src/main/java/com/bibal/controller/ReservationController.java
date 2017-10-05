@@ -51,7 +51,7 @@ public class ReservationController {
 		return "formAjouterReservation";
 	}
 
-	@PostMapping(value = "reservations")
+	@PostMapping(value = "/reservations")
 	public String ajouterReservation(Date date, Long idUsager, Long idOeuvre) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);

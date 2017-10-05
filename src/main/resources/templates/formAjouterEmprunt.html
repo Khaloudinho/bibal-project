@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"/>
 
     <!-- autocompletion : jquery autocomplete -->
+<!--
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+-->
     <!-- input pour les dates sympathiques : flatpickr-->
-    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
-    <script src="https://unpkg.com/flatpickr"></script>
-    <script type="text/javascript">
+    <script th:src="@{/lib/js/flatpickr.js}" type="text/javascript" th:defer="defer"></script>
+    <!--<script type="text/javascript">
         $(document).ready(function(){
             $("#idOeuvre").change(function(){
                 $("#idExemplaire > option").each(function(){
@@ -22,6 +22,9 @@
                 });
             });
         });
+    </script>-->
+    <script type="application/javascript" th:defer="defer" >
+        flatpickr('.input datereservation',{});
     </script>
 </head>
 
@@ -78,9 +81,9 @@
             </div>
 
             <div class="field">
-                <label class="label">Date de réservation</label>
+                <label class="label">Date de rendu de l'emprunt</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" class="datereservation input" name="date" placeholder="Date de réservation" value="" />
+                    <input class="input datereservation" id="date" name="date" type="date" placeholder="Date de rendu de l'emprunt" />
                 </div>
             </div>
 
@@ -92,8 +95,5 @@
         </form>
     </div>
 </section>
-<script type="application/javascript">
-    flatpickr('.datereservation',{});
-</script>
 </body>
 </html>
