@@ -4,20 +4,41 @@
 		<meta charset="utf-8" />	
   		<title>Accueil</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
+		<style>
+			.iframeContainer{
+				position:relative;
+			}
+
+			.iframeBlocker{
+				position:absolute;
+				width:100%;
+				height:402px;
+				opacity:0.5;
+			}
+
+			iframe, .iframeContainer {
+				width: 100%;
+				height: 402px;
+			}
+		</style>
 	</head>
 	<body>
 	<section layout:fragment="custom-content">
 		<p style="text-align: center; font-size: 18px; color: black;">
-			Bienvenue sur notre site concernet le projet "Bibal".<br />
-			L'objectif de ce projet est de gérer le système d'information relatif à une bibliothèque.<br />
+			Bienvenue sur notre site concernet le projet "Bibal" dans lequel nous modélisons la gestion
+			d'un système d'information relatif à une bibliothèque.<br />
 			Cette réalisation a été effectuée dans le cadre du cours d'applications distribuées.
 		</p>
 		<br />
 		<br />
 		<p>
-			<img th:src="@{/images/bibliotheque.jpg}" alt="bibliotheque image" style="display:block; margin:0 auto; width:800px; height:400px;" />
+			<div class="iframeContainer">
+				<div class="borderContainer">
+					<div class="iframeBlocker"></div>
+					<iframe src="https://giphy.com/embed/128MHrlrHNwwU0" frameBorder="0" class="giphy-embed"></iframe>
+				</div>
+			</div>
 		</p>
-		<!-- ADD SOME STATS ABOUT OUR BIBAL APP ? -->
     </section>
 </body>
 </html>

@@ -5,14 +5,19 @@
     <title>Création d'une oeuvre</title>
     <style>th, td { text-align: center; }</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
 
     <!-- autocompletion : jquery autocomplete -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- input pour les dates sympathiques : flatpickr-->
-    <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
-    <script src="https://unpkg.com/flatpickr"></script>
+    <script src="src/main/resources/lib/flatpickr.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            flatpickr('#date');
+        });
+    </script>
 </head>
 
 <body>
@@ -49,7 +54,7 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" class="datereservation input" name="date" placeholder="Date de réservation" value="" />
+                    <input class="input" id="date" placeholder="Date de réservation" />
                 </div>
             </div>
 
@@ -57,7 +62,10 @@
                 <label class="label">Statut de la réservation</label>
                 <div class="select">
                     <select th:name="statut">
-                        <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}" th:value="${statut}" th:text="${statut}"></option>
+                        <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}"
+                                th:value="${statut}"
+                                th:text="${statut}">
+                        </option>
                     </select>
                 </div>
             </div>
@@ -70,8 +78,5 @@
         </form>
     </div>
 </section>
-<script type="application/javascript">
-    flatpickr('.datereservation',{});
-</script>
 </body>
 </html>

@@ -62,7 +62,7 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" class="datereservation input" name="date"
+                    <input autocomplete="off" type="date" id="flatpickr" class="datereservation input" name="date"
                            placeholder="Date de réservation" th:value="${reservation.date}" />
                 </div>
             </div>
@@ -89,7 +89,7 @@
     </div>
 </section>
 <script type="application/javascript">
-    flatpickr('.datereservation', {});
+    $("#flatpickr").flatpickr();
 </script>
 </body>
 </html>

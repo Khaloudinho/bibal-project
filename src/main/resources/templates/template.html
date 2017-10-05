@@ -4,17 +4,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>template</title>
-	<style th:inline="text">
-		th, td, tr { text-align: center;}
-	</style>
 </head>
-<body>
+<body style="min-height: 100%">
 	<header>
 
 		<nav class="navbar is-transparent">
 			<div class="navbar-brand">
-				<a class="navbar-item" th:href="@{/home}">
-                    <img th:src="@{/images/logo.png}" alt="Bibal bonne librairie" width="50" height="40" />
+				<a class="navbar-item" th:href="@{/accueil}">
+                    <img th:src="@{/images/logo.png}" alt="Bibal bonne librairie" />
 				</a>
 
 				<a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
@@ -56,15 +53,13 @@
 		</nav>
 	</header>
 	<hr/>
-	<section layout:fragment="custom-content" style="min-height: 300px; margin-bottom: 12%;">
+	<section layout:fragment="custom-content" style="margin-bottom: 100px;">
 	</section>
-	<footer class="footer" style="padding: 2% 2%;">
-		<div class="container">
+	<footer class="footer" style="clear: both; position: relative; z-index: 10; height: 3em; margin-top: -3em;">
 			<div class="content has-text-centered" style="font-weight: bold; color: black;">
                 <p>Réalisé par Guillaume Bertrand et Khaled Bouguettoucha</p>
 				<p>Code source sous licence <a href="http://opensource.org/licenses/mit-license.php" style="color:black;">MIT</a></p>
 			</div>
-		</div>
 	</footer>
 </body>
 </html>
