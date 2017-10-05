@@ -1,5 +1,7 @@
 package com.bibal.metier;
 
+import com.bibal.util.EtatExemplaire;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -21,11 +23,12 @@ public class Exemplaire implements Serializable {
 	@JoinColumn(name = "idEmprunt")
 	private Emprunt emprunt;
 
-	private String etat;
+	@Enumerated(EnumType.STRING)
+	private EtatExemplaire etat;
 
 	public Exemplaire() {}
 
-	public Exemplaire(Oeuvre oeuvre, String etat) {
+	public Exemplaire(Oeuvre oeuvre, EtatExemplaire etat) {
 		this.oeuvre = oeuvre;
 		//this.listeEmprunts = new HashSet<Emprunt>();
 		this.etat = etat;
@@ -47,11 +50,11 @@ public class Exemplaire implements Serializable {
 		this.oeuvre = oeuvre;
 	}
 
-	public String getEtat() {
+	public EtatExemplaire getEtat() {
 		return etat;
 	}
 
-	public void setEtat(String etat) {
+	public void setEtat(EtatExemplaire etat) {
 		this.etat = etat;
 	}
 }
