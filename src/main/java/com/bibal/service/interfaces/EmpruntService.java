@@ -14,4 +14,6 @@ public interface EmpruntService {
 	Emprunt recupererEmpruntViaID(Long idEmprunt);
 	//Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut);
 
+	// DELETE
+	void archiverEmprunt(Long idEmprunt);
 }

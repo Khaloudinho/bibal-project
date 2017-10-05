@@ -2,7 +2,8 @@ package com.bibal.controller;
 
 import com.bibal.metier.*;
 import com.bibal.service.interfaces.*;
-import com.bibal.util.StatutReservation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.JoinColumn;
 import java.sql.Date;
 import java.util.List;
 
@@ -54,28 +56,16 @@ public class EmpruntController {
 	public String ajouterEmprunt(Date date, Long idUsager, Long idExemplaire) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
+
 		empruntService.ajouterEmprunt(date, usager, exemplaire);
-		return "redirect:/reservations";
-	}
-/*
-
-	@GetMapping(value = "/reservations/{idUsager}/edit")
-	public String getFormModifierUsager(@PathVariable Long idUsager, Model model) {
-		List<Usager> usagers = usagerService.recupererTousLesUsagers();
-		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
-		Reservation reservation = reservationService.recupererReservationViaID(idUsager);
-		model.addAttribute("usagers", usagers);
-		model.addAttribute("oeuvres", oeuvres);
-		model.addAttribute("reservation", reservation);
-		return "formModifierReservation";
+		//usagerService.ajouterEmprunt()
+		return "redirect:/emprunts";
 	}
 
-	@PutMapping(value = "/reservations")
-	public String modifierUsager(Long idReservation, Date date, Long idUsager, Long idOeuvre, StatutReservation statut) {
-		Usager usager = usagerService.recupererUsagerViaID(idUsager);
-		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
-		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre, statut);
-		return "redirect:/reservations";
+	@DeleteMapping(value = "emprunts/{idEmprunt}")
+	public void supprimerUsager(@PathVariable Long idUsager) {
+		/*empruntService.;
+		return "redirect:/emprunts";*/
 	}
-	*/
+
 }

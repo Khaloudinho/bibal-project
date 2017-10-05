@@ -24,6 +24,10 @@ public class Usager implements Serializable{
 	@JoinColumn(name = "idReservation")
 	private List<Reservation> listeReservations;
 
+	@OneToMany
+	@JoinColumn(name = "idUsager")
+	private List<Emprunt> listeEmprunts;
+
 	public Usager() {
 		super();
 		// etat = EtatUsager.Client.toString();
@@ -112,6 +116,26 @@ public class Usager implements Serializable{
 			setEtat(EtatUsager.Desactive.toString());
 			nombreSuspensions = 0;
 		}
+
 	} */
 
+	public void setIdUsager(Long idUsager) {
+		this.idUsager = idUsager;
+	}
+
+	public List<Reservation> getListeReservations() {
+		return listeReservations;
+	}
+
+	public void setListeReservations(List<Reservation> listeReservations) {
+		this.listeReservations = listeReservations;
+	}
+
+	public List<Emprunt> getListeEmprunts() {
+		return listeEmprunts;
+	}
+
+	public void setListeEmprunts(List<Emprunt> listeEmprunts) {
+		this.listeEmprunts = listeEmprunts;
+	}
 }

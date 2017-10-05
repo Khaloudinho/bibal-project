@@ -31,13 +31,13 @@
 									</thead>
 									<tbody>
 									<tr class="odd" role="row" th:each="emprunt:${emprunts}">
-										<td th:text="${emprunt.idReservation}"></td>
+										<td th:text="${emprunt.idEmprunt}"></td>
 										<td th:text="${emprunt.date}"></td>
 										<td th:text="${emprunt.usager.prenom}+' '+${emprunt.usager.nom}"></td>
-										<td th:text="${emprunt.oeuvre.titre}"></td>
-										<td th:text="${emprunt.statut}"></td>
+										<td th:text="${emprunt.exemplaire.idExemplaire}"></td>
+										<td th:text="${emprunt.exemplaire.oeuvre.titre}"></td>
 										<td>
-											<form th:action="@{/emprunts/__${emprunt.idReservation}__/edit}" method="get">
+											<form th:action="@{/emprunts/__${emprunt.idEmprunt}__/edit}" method="get">
 												<div class="field">
 													<div class="control">
 														<button class="button is-danger" type="submit">Modifier</button>

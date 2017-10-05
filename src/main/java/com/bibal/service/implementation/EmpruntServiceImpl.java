@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Service
@@ -29,6 +31,11 @@ public class EmpruntServiceImpl implements EmpruntService {
 	@Override
 	public Emprunt recupererEmpruntViaID(Long idEmprunt) {
 		return empruntRepository.findOne(idEmprunt);
+	}
+
+	@Override
+	public void archiverEmprunt(Long idEmprunt) {
+
 	}
 
 	@Override

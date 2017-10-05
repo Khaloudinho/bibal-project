@@ -21,7 +21,7 @@ public class Oeuvre implements Serializable {
 	private Set<Reservation> listeReservations;
 
 	@OneToMany
-	@JoinColumn(name = "idExemplaire")
+	@JoinColumn(name = "idOeuvre")
 	private Set<Exemplaire> listeExemplaires;
 
 	public Oeuvre() {}

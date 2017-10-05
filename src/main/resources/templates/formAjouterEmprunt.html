@@ -18,7 +18,7 @@
             $("#idOeuvre").change(function(){
                 $("#idExemplaire > option").each(function(){
                     $(this).show();
-                    if ($(this).val() != $("#idOeuvre option:selected").text()) $(this).hide();
+                    if ($(this).attr("name") != $("#idOeuvre option:selected").text()) $(this).hide();
                 });
             });
         });
@@ -67,8 +67,9 @@
                             <select th:name="idExemplaire" th:id="idExemplaire">
                                     <option value="" selected="selected">Sélectionnez un exemplaire</option>
                                     <option th:each="exemplaire:${exemplaires}"
+                                            th:name="${exemplaire.oeuvre.titre}"
                                             th:text="'N°'+${exemplaire.idExemplaire}+' '+${exemplaire.oeuvre.titre}"
-                                            th:value="${exemplaire.oeuvre.titre}">
+                                            th:value="${exemplaire.idExemplaire}">
                                     </option>
                             </select>
                         </div>

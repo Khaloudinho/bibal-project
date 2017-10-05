@@ -13,37 +13,6 @@
     <!-- input pour les dates sympathiques : flatpickr-->
     <link rel="stylesheet" href="https://unpkg.com/flatpickr/dist/flatpickr.min.css"/>
     <script src="https://unpkg.com/flatpickr"></script>
-    <!--<script>
-        $(function () {
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
-            ];
-            $("#tags").autocomplete({
-                source: availableTags
-            });
-        });
-    </script>-->
 </head>
 
 <body>
@@ -63,12 +32,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="field">
-                <label class="label">Oeuvre</label>
-                <div class="control">
-                    <input class="input" type="text" name="oeuvre" placeholder="Cracking The Code Interview"/>
-                </div>
-            </div>-->
             <div class="field">
                 <label class="label">Oeuvre sélectionnée</label>
                 <div class="control">
@@ -86,7 +49,7 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" class="datereservation input" name="date" placeholder="Date de réservation" value="" />
+                    <input autocomplete="off" type="date" class="datereservation" name="date" placeholder="Date de réservation" value="" />
                 </div>
             </div>
 
@@ -98,12 +61,6 @@
                     </select>
                 </div>
             </div>
-            <!--
-            <div class="ui-widget">
-                <label for="tags">Tags: </label>
-                <input id="tags"/>
-            </div>
-            -->
 
             <div class="field">
                 <div class="control">

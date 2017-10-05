@@ -57,5 +57,4 @@ public class UsagerServiceImpl implements UsagerService {
 		usager.setTelephone(telephone);
 		return usager;
 	}
-
 }

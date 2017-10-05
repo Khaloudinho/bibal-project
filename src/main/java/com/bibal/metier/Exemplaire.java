@@ -10,15 +10,16 @@ public class Exemplaire implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JoinColumn(name = "idExemplaire")
 	private Long idExemplaire;
 
 	@ManyToOne
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	//@ManyToMany
-	//@JoinColumn(name = "idEmprunt")
-	//private Set<Emprunt> listeEmprunts;
+	@OneToOne
+	@JoinColumn(name = "idEmprunt")
+	private Emprunt emprunt;
 
 	private String etat;
 
