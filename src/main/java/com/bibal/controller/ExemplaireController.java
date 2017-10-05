@@ -49,7 +49,7 @@ public class ExemplaireController {
     }
 
     @PostMapping(value = "exemplaires")
-    public String ajouterExemplaire(Long idOeuvre, String etat) {
+    public String ajouterExemplaire(Long idOeuvre, EtatExemplaire etat) {
         exemplaireService.ajouterExemplaire(idOeuvre, etat);
         return "redirect:/exemplaires";
     }

@@ -5,6 +5,18 @@
     <title>Mise à jour d'un exemplaire</title>
     <style>th, td { text-align: center; }</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#etat > option").each(function(){
+                if ($(this).val() == $("#_etat").val()) $(this).attr('selected','selected');
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -22,9 +34,10 @@
             <div class="field">
                 <label class="label">Etat de l'exemplaire</label>
                 <div class="select">
-                    <select th:name="etat">
+                    <select th:id="etat" th:name="etat">
                         <option th:each="etat:${T(com.bibal.util.EtatExemplaire).values()}" th:value="${etat}" th:text="${etat}"></option>
                     </select>
+                    <input class="input" type="hidden" id="_etat" th:value="${exemplaire.etat}" />
                 </div>
             </div>
 

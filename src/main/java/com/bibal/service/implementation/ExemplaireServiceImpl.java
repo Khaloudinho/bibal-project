@@ -32,7 +32,7 @@ public class ExemplaireServiceImpl implements ExemplaireService {
 	}
 
 	@Override
-	public void ajouterExemplaire(Long idOeuvre, String etat) {
+	public void ajouterExemplaire(Long idOeuvre, EtatExemplaire etat) {
 		Exemplaire exemplaire = new Exemplaire(oeuvreService.recupererOeuvreViaID(idOeuvre), etat);
 		exemplaireRepository.save(exemplaire);
 	}
@@ -45,7 +45,7 @@ public class ExemplaireServiceImpl implements ExemplaireService {
 	@Override
 	public Exemplaire modifierExemplaire(Long idExemplaire, EtatExemplaire etat) {
 		Exemplaire exemplaire = recupererExemplaireViaID(idExemplaire);
-		exemplaire.setEtat(String.valueOf(etat));
+		exemplaire.setEtat(etat);
 		return exemplaire;
 	}
 

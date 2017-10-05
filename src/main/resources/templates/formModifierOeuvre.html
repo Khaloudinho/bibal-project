@@ -5,6 +5,17 @@
     <title>Mise à jour d'une oeuvre</title>
     <style>th, td { text-align: center; }</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#genre > option").each(function(){
+                if ($(this).val() == $("#_genre").val()) $(this).attr('selected','selected');
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -28,8 +39,14 @@
 
             <div class="field">
                 <label class="label">Genre</label>
-                <div class="control">
-                    <input class="input" type="text" name="genre" th:value="${oeuvre.genre}" />
+                <div class="select">
+                    <select th:id="genre" th:name="genre">
+                        <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
+                                th:value="${genre}"
+                                th:text="${genre}">
+                        </option>
+                    </select>
+                    <input class="input" type="hidden" id="_genre" th:value="${oeuvre.genre}" />
                 </div>
             </div>
 

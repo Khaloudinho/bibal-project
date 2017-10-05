@@ -48,11 +48,12 @@
             </div>
 
             <div class="field">
-                <label class="label">Date de réservation</label>
+                <label class="label">Statut de la réservation</label>
                 <div class="select">
                     <select th:name="statut">
                         <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}"
-                                th:value="${statut}" th:text="${statut}">
+                                th:value="${statut.getNom()}" th:text="${statut.getNom()
+                                }">
                         </option>
                     </select>
                 </div>
