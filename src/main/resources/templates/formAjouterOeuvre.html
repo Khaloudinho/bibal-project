@@ -15,21 +15,22 @@
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
-                    <input class="input" type="text" name="titre" placeholder="Les Fourberies de Scapin" />
+                    <input class="input" type="text" name="titre" required="required" placeholder="Les Fourberies de Scapin" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Auteur</label>
                 <div class="control">
-                    <input class="input" type="text" name="auteur" placeholder="Molière" />
+                    <input class="input" type="text" name="auteur" required="required" placeholder="Molière" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Genre</label>
                 <div class="select">
-                    <select th:name="genre">
+                    <select th:name="genre" required="required">
+                        <option value="" selected="selected">Sélectionnez un genre littéraire</option>
                         <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
                                 th:value="${genre}" th:text="${genre}">
                         </option>

@@ -24,6 +24,7 @@
             $("#statut > option").each(function(){
                 if ($(this).val() == $("#_statut").val()) $(this).attr('selected','selected');
             });
+            flatpickr('#date');
         });
     </script>
 </head>
@@ -37,7 +38,7 @@
                 <label class="label">Usager</label>
                 <div class="control">
                     <div class="select">
-                        <select th:id="idUsager" th:name="idUsager">
+                        <select th:id="idUsager" th:name="idUsager" required="required">
                             <option th:each="usager:${usagers}" th:value="${usager.idUsager}" th:text="${usager.prenom}+' '+${usager.nom}"></option>
                         </select>
                         <input class="input" type="hidden" id="_idUsager" th:value="${reservation.usager.idUsager}" />
@@ -50,7 +51,7 @@
                 <div class="control">
                     <div class="select">
                         <div class="select">
-                            <select th:id="idOeuvre" th:name="idOeuvre">
+                            <select th:id="idOeuvre" th:name="idOeuvre" required="required">
                                 <option th:each="oeuvre:${oeuvres}" th:value="${oeuvre.idOeuvre}" th:text="${oeuvre.titre}"></option>
                             </select>
                             <input class="input" type="hidden" id="_idOeuvre" th:value="${reservation.oeuvre.idOeuvre}" />
@@ -62,15 +63,15 @@
             <div class="field">
                 <label class="label">Date de réservation</label>
                 <div class="control">
-                    <input autocomplete="off" type="date" id="flatpickr" class="datereservation input" name="date"
-                           placeholder="Date de réservation" th:value="${reservation.date}" />
+                    <input autocomplete="off" class="datereservation input" id="date" name="date"
+                           required="required" readonly="readonly" placeholder="Date de réservation" th:value="${reservation.date}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Statut de la réservation</label>
                 <div class="select">
-                    <select th:id="statut" th:name="statut">
+                    <select th:id="statut" th:name="statut" required="required">
                         <option th:each="statut:${T(com.bibal.util.StatutReservation).values()}"
                                 th:value="${statut}"
                                 th:text="${statut}">
@@ -88,8 +89,5 @@
         </form>
     </div>
 </section>
-<script type="application/javascript">
-    $("#flatpickr").flatpickr();
-</script>
 </body>
 </html>

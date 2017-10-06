@@ -27,14 +27,14 @@
             <div class="field">
                 <label class="label">Oeuvre sélectionnée</label>
                 <div class="control">
-                    <input class="input" type="text" name="oeuvre" disabled="disabled" th:value="${exemplaire.oeuvre.titre}" />
+                    <input class="input" type="text" name="oeuvre" disabled="disabled" required="required" th:value="${exemplaire.oeuvre.titre}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Etat de l'exemplaire</label>
                 <div class="select">
-                    <select th:id="etat" th:name="etat">
+                    <select th:id="etat" th:name="etat" required="required">
                         <option th:each="etat:${T(com.bibal.util.EtatExemplaire).values()}" th:value="${etat}" th:text="${etat}"></option>
                     </select>
                     <input class="input" type="hidden" id="_etat" th:value="${exemplaire.etat}" />

@@ -15,7 +15,7 @@ import java.util.List;
 @ComponentScan
 public class IndexController {
 
-	@RequestMapping(value = {"/accueil", "/"}, method = RequestMethod.GET)
+	@GetMapping(value = {"/accueil", "/"})
 	public String recupererToutesLesUsagers(Model model) {
 		return "index";
 	}

@@ -26,21 +26,21 @@
             <div class="field">
                 <label class="label">Titre</label>
                 <div class="control">
-                    <input class="input" type="text" name="titre" th:value="${oeuvre.titre}" />
+                    <input class="input" type="text" name="titre" required="required" th:value="${oeuvre.titre}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Auteur</label>
                 <div class="control">
-                    <input class="input" type="text" name="auteur" th:value="${oeuvre.auteur}" />
+                    <input class="input" type="text" name="auteur" required="required" th:value="${oeuvre.auteur}" />
                 </div>
             </div>
 
             <div class="field">
                 <label class="label">Genre</label>
                 <div class="select">
-                    <select th:id="genre" th:name="genre">
+                    <select th:id="genre" th:name="genre" required="required">
                         <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
                                 th:value="${genre}"
                                 th:text="${genre}">
