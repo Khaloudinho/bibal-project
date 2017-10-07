@@ -15,6 +15,12 @@
     <script th:src="@{/lib/js/flatpickr.js}" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            $('#idOeuvre').change(function(){
+               $('#idExemplaire option').each(function(){
+                   $(this).show();
+                   if ($(this).attr("name") != $('#idOeuvre option:selected').text()) $(this).hide();
+               });
+            });
             flatpickr('#date');
         });
     </script>

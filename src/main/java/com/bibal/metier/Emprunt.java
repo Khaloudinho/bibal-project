@@ -21,6 +21,7 @@ public class Emprunt implements Serializable{
 	private Usager usager;
 
 	private boolean statut;
+
 	public Emprunt() { }
 
 	public Emprunt(Date date, Usager usager, Exemplaire exemplaire) {
