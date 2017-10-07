@@ -27,12 +27,12 @@
             </div>
 
             <div class="field">
-                <label class="label">Genre</label>
+                <label class="label">Type d'oeuvre</label>
                 <div class="select">
-                    <select th:name="genre" required="required">
-                        <option value="" selected="selected">Sélectionnez un genre littéraire</option>
-                        <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
-                                th:value="${genre}" th:text="${genre}">
+                    <select th:name="type" required="required">
+                        <option value="" selected="selected">Sélectionnez un type d'oeuvre</option>
+                        <option th:each="type:${T(com.bibal.util.TypeOeuvre).values()}"
+                                th:value="${type}" th:text="${type}">
                         </option>
                     </select>
                 </div>

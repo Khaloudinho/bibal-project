@@ -1,5 +1,5 @@
 package com.bibal.util;
 
-public enum GenreOeuvre {
+public enum TypeOeuvre {
     Livre, Magazine;
 }

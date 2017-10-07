@@ -3,7 +3,7 @@ package com.bibal.service.implementation;
 import com.bibal.dao.OeuvreRepository;
 import com.bibal.metier.Oeuvre;
 import com.bibal.service.interfaces.OeuvreService;
-import com.bibal.util.GenreOeuvre;
+import com.bibal.util.TypeOeuvre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +33,8 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 
 	@Override
-	public void ajouterOeuvre(String titre, String auteur, GenreOeuvre genre) {
-		Oeuvre oeuvre = new Oeuvre(titre, auteur, genre);
+	public void ajouterOeuvre(String titre, String auteur, TypeOeuvre type) {
+		Oeuvre oeuvre = new Oeuvre(titre, auteur, type);
 		oeuvreRepository.save(oeuvre);
 	}
 
@@ -44,11 +44,11 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 
 	@Override
-	public Oeuvre modifierOeuvre(Long idOeuvre, String titre, String auteur, GenreOeuvre genre) {
+	public Oeuvre modifierOeuvre(Long idOeuvre, String titre, String auteur, TypeOeuvre type) {
 		Oeuvre oeuvre = recupererOeuvreViaID(idOeuvre);
 		oeuvre.setTitre(titre);
 		oeuvre.setAuteur(auteur);
-		oeuvre.setGenre(genre);
+		oeuvre.setGenre(type);
 		return oeuvre;
 	}
 

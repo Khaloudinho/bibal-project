@@ -38,15 +38,15 @@
             </div>
 
             <div class="field">
-                <label class="label">Genre</label>
+                <label class="label">Type d'oeuvre</label>
                 <div class="select">
-                    <select th:id="genre" th:name="genre" required="required">
-                        <option th:each="genre:${T(com.bibal.util.GenreOeuvre).values()}"
-                                th:value="${genre}"
-                                th:text="${genre}">
+                    <select th:id="type" th:name="type" required="required">
+                        <option th:each="type:${T(com.bibal.util.TypeOeuvre).values()}"
+                                th:value="${type}"
+                                th:text="${type}">
                         </option>
                     </select>
-                    <input class="input" type="hidden" id="_genre" th:value="${oeuvre.genre}" />
+                    <input class="input" type="hidden" id="_genre" th:value="${oeuvre.type}" />
                 </div>
             </div>
 

@@ -2,7 +2,7 @@ package com.bibal.controller;
 
 import com.bibal.metier.Oeuvre;
 import com.bibal.service.interfaces.OeuvreService;
-import com.bibal.util.GenreOeuvre;
+import com.bibal.util.TypeOeuvre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -49,14 +49,14 @@ public class OeuvreController {
     }
 
     @PostMapping(value = "oeuvres")
-    public String ajouterOeuvre(String titre, String auteur, GenreOeuvre genre) {
-        oeuvreService.ajouterOeuvre(titre, auteur, genre);
+    public String ajouterOeuvre(String titre, String auteur, TypeOeuvre type) {
+        oeuvreService.ajouterOeuvre(titre, auteur, type);
         return "redirect:/oeuvres";
     }
 
     @PutMapping(value = "oeuvres/{idOeuvre}")
-    public String modifierOeuvre(@PathVariable String idOeuvre, String titre, String auteur, GenreOeuvre genre) {
-        oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, genre);
+    public String modifierOeuvre(@PathVariable String idOeuvre, String titre, String auteur, TypeOeuvre type) {
+        oeuvreService.modifierOeuvre(Long.valueOf(idOeuvre), titre, auteur, type);
         return "redirect:/oeuvres";
     }
 

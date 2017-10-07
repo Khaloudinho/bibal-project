@@ -1,6 +1,6 @@
 package com.bibal.metier;
 
-import com.bibal.util.GenreOeuvre;
+import com.bibal.util.TypeOeuvre;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ public class Oeuvre implements Serializable {
 	private String auteur;
 
 	@Enumerated(EnumType.STRING)
-	private GenreOeuvre genre;
+	private TypeOeuvre type;
 
 	@OneToMany
 	@JoinColumn(name = "idOeuvre")
@@ -29,10 +29,10 @@ public class Oeuvre implements Serializable {
 
 	public Oeuvre() {}
 
-	public Oeuvre(String titre, String auteur, GenreOeuvre genre) {
+	public Oeuvre(String titre, String auteur, TypeOeuvre type) {
 		this.titre = titre;
 		this.auteur = auteur;
-		this.genre = genre;
+		this.type = type;
 		this.listeReservations = new HashSet<Reservation>();
 		this.listeExemplaires = new HashSet<Exemplaire>();
 	}
@@ -61,11 +61,11 @@ public class Oeuvre implements Serializable {
 		this.auteur = auteur;
 	}
 
-	public GenreOeuvre getGenre() {
+	public TypeOeuvre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(GenreOeuvre genre) {
+	public void setGenre(TypeOeuvre genre) {
 		this.genre = genre;
 	}
 
