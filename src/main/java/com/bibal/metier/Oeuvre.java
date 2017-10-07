@@ -62,11 +62,11 @@ public class Oeuvre implements Serializable {
 	}
 
 	public TypeOeuvre getGenre() {
-		return genre;
+		return type;
 	}
 
-	public void setGenre(TypeOeuvre genre) {
-		this.genre = genre;
+	public void setGenre(TypeOeuvre type) {
+		this.type = type;
 	}
 
 	public Set<Reservation> getSetReservations() {
