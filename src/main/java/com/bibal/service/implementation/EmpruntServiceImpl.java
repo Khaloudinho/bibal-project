@@ -43,14 +43,4 @@ public class EmpruntServiceImpl implements EmpruntService {
 	public void archiverEmprunt(Long idEmprunt){
 		empruntRepository.archiverEmprunt(idEmprunt);
 	}
-/*
-	@Override
-	public Emprunt modifierEmprunt(Long idEmprunt, Date date, Usager usager, Exemplaire exemplaire) {
-		Emprunt emprunt = recupererEmpruntViaID(idEmprunt);
-		emprunt.setDate(date);
-		emprunt.setUsager(usager);
-		emprunt.setOeuvre(oeuvre);
-		return emprunt;
-	}
-	*/
 }

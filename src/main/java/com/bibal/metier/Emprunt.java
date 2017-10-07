@@ -20,7 +20,7 @@ public class Emprunt implements Serializable{
 	@JoinColumn(name = "idUsager", nullable = false)
 	private Usager usager;
 
-	private boolean statut;
+	private boolean archive;
 
 	public Emprunt() { }
 
@@ -28,7 +28,7 @@ public class Emprunt implements Serializable{
 		this.date = date;
 		this.usager = usager;
 		this.exemplaire = exemplaire;
-		this.statut=false;
+		this.archive=false;
 	}
 
 	public Long getIdEmprunt() {
@@ -63,11 +63,11 @@ public class Emprunt implements Serializable{
 		this.usager = usager;
 	}
 
-	public boolean isStatut() {
-		return statut;
+	public boolean isArchive() {
+		return archive;
 	}
 
-	public void setStatut(boolean statut) {
-		this.statut = statut;
+	public void setArchive(boolean archive) {
+		this.archive = archive;
 	}
 }
