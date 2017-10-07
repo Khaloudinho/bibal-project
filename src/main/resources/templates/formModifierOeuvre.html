@@ -11,8 +11,8 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $("#genre > option").each(function(){
-                if ($(this).val() == $("#_genre").val()) $(this).attr('selected','selected');
+            $("#type > option").each(function(){
+                if ($(this).val() == $("#_type").val()) $(this).attr('selected','selected');
             });
         });
     </script>
@@ -46,7 +46,7 @@
                                 th:text="${type}">
                         </option>
                     </select>
-                    <input class="input" type="hidden" id="_genre" th:value="${oeuvre.type}" />
+                    <input class="input" type="hidden" id="_type" th:value="${oeuvre.type}" />
                 </div>
             </div>
 

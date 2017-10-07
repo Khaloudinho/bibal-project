@@ -25,7 +25,7 @@
                 <tr>
                     <th>Titre</th>
                     <th>Auteur</th>
-                    <th>Genre</th>
+                    <th>Type</th>
                     <th>Modifier</th>
                     <th>Supprimer</th>
                 </tr>
@@ -34,7 +34,7 @@
                 <tr class="odd" role="row" th:each="o:${oeuvres}" th:id="${o.idOeuvre}">
                     <td th:text="${o.titre}"></td>
                     <td th:text="${o.auteur}"></td>
-                    <td th:text="${o.genre}"></td>
+                    <td th:text="${o.type}"></td>
                     <td>
                         <form th:action="@{/oeuvres/__${o.idOeuvre}__/edit}" th:method="get">
                             <div class="field">

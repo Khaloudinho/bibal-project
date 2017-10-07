@@ -43,11 +43,9 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut) {
+	public Reservation modifierReservation(Long idReservation, Date date, StatutReservation statut) {
 		Reservation reservation = recupererReservationViaID(idReservation);
 		reservation.setDate(date);
-		reservation.setUsager(usager);
-		reservation.setOeuvre(oeuvre);
 		reservation.setStatut(statut);
 		return reservation;
 	}

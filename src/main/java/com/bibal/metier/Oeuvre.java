@@ -61,11 +61,11 @@ public class Oeuvre implements Serializable {
 		this.auteur = auteur;
 	}
 
-	public TypeOeuvre getGenre() {
+	public TypeOeuvre getType() {
 		return type;
 	}
 
-	public void setGenre(TypeOeuvre type) {
+	public void setType(TypeOeuvre type) {
 		this.type = type;
 	}
 

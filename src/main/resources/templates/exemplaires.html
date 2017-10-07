@@ -25,7 +25,7 @@
 										<th>N° exemplaire</th>
 										<th>Titre</th>
 										<th>Auteur</th>
-										<th>Genre</th>
+										<th>Type</th>
 										<th>Etat</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
@@ -36,7 +36,7 @@
 										<td th:text="${e.idExemplaire}"></td>
 										<td th:text="${e.oeuvre.titre}"></td>
 										<td th:text="${e.oeuvre.auteur}"></td>
-										<td th:text="${e.oeuvre.genre}"></td>
+										<td th:text="${e.oeuvre.type}"></td>
 										<td th:text="${e.etat}"></td>
 										<td>
 											<form th:action="@{/exemplaires/__${e.idExemplaire}__/edit}" th:method="get">

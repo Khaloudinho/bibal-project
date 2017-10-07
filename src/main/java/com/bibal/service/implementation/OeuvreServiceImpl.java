@@ -48,7 +48,7 @@ public class OeuvreServiceImpl implements OeuvreService {
 		Oeuvre oeuvre = recupererOeuvreViaID(idOeuvre);
 		oeuvre.setTitre(titre);
 		oeuvre.setAuteur(auteur);
-		oeuvre.setGenre(type);
+		oeuvre.setType(type);
 		return oeuvre;
 	}
 

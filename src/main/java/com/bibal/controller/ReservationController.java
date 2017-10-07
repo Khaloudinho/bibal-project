@@ -71,10 +71,8 @@ public class ReservationController {
 	}
 
 	@PutMapping(value = "reservations/{idReservation}")
-	public String modifierReservation(@PathVariable Long idReservation, Date date, Long idUsager, Long idOeuvre, StatutReservation statut) {
-		Usager usager = usagerService.recupererUsagerViaID(idUsager);
-		Oeuvre oeuvre = oeuvreService.recupererOeuvreViaID(idOeuvre);
-		reservationService.modifierReservation(Long.valueOf(idReservation), date, usager, oeuvre, statut);
+	public String modifierReservation(@PathVariable Long idReservation, Date date, StatutReservation statut) {
+		reservationService.modifierReservation(Long.valueOf(idReservation), date, statut);
 		return "redirect:/reservations";
 	}
 }
