@@ -1,7 +1,5 @@
 package com.bibal.metier;
 
-import com.bibal.util.EtatUsager;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -17,8 +15,6 @@ public class Usager implements Serializable{
 	private String adresse;
 	private String mail;
 	private String telephone;
-	// private int nombreSuspensions;
-	// private String etat;
 
 	@OneToMany
 	@JoinColumn(name = "idReservation")
@@ -29,29 +25,15 @@ public class Usager implements Serializable{
 	private List<Emprunt> listeEmprunts;
 
 	public Usager() {
-		super();
-		// etat = EtatUsager.Client.toString();
-		// nombreSuspensions = 0;
 	}
 	
 	public Usager(String nom, String prenom, String adresse, String mail, String telephone) {
-		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
 		this.telephone = telephone;
 		this.adresse = adresse;
-		// this.etat = EtatUsager.Client.toString();
-		// this.nombreSuspensions = 0;
 	}
-	
-	/* public String getEtat() {
-		return etat;
-	}
-
-	public void setEtat(String etat) {
-		this.etat = etat;
-	} */
 
 	public Long getIdUsager() {
 		return idUsager;
@@ -96,28 +78,6 @@ public class Usager implements Serializable{
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	
-	/* public int getNombreSuspensions() {
-		return nombreSuspensions;
-	}
-
-	public void setNombreSuspensions(int nombreSuspensions) {
-		this.nombreSuspensions = nombreSuspensions;
-	}
-
-	public void suspendre(){
-		setEtat(EtatUsager.Suspendu.toString());
-		incrementNombreSuspensions();
-	}
-	public void incrementNombreSuspensions(){
-		if(nombreSuspensions<2)
-			nombreSuspensions++;
-		else{
-			setEtat(EtatUsager.Desactive.toString());
-			nombreSuspensions = 0;
-		}
-
-	} */
 
 	public void setIdUsager(Long idUsager) {
 		this.idUsager = idUsager;

@@ -24,7 +24,7 @@ import com.bibal.service.interfaces.ReservationService;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class ReservationController {
+public class ReservationsController {
 
 	@Autowired
 	private ReservationService reservationService;

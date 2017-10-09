@@ -17,7 +17,7 @@ import com.bibal.service.interfaces.UsagerService;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class UsagerController {
+public class UsagersController {
 
 	@Autowired
 	private UsagerService usagerService;

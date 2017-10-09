@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class OeuvreController {
+public class OeuvresController {
 
     @Autowired
     private OeuvreService oeuvreService;

@@ -20,7 +20,7 @@ import java.util.List;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class EmpruntController {
+public class EmpruntsController {
 
 	@Autowired
 	private EmpruntService empruntService;

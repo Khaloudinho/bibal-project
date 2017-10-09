@@ -16,7 +16,7 @@ import java.util.List;
 public class IndexController {
 
 	@GetMapping(value = {"/accueil", "/"})
-	public String recupererToutesLesUsagers(Model model) {
+	public String afficherPageAccueil(Model model) {
 		return "index";
 	}
 

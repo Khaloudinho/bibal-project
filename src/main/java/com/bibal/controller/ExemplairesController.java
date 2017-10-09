@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 @EnableAutoConfiguration
 @ComponentScan
-public class ExemplaireController {
+public class ExemplairesController {
 
     @Autowired
     private ExemplaireService exemplaireService;

@@ -28,8 +28,6 @@ public class Reservation implements Serializable {
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-
-
 	public Reservation() {}
 
 	public Reservation(Date date, Usager usager, Oeuvre oeuvre) {
