@@ -16,4 +16,5 @@ public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
     @Modifying
     @Query("UPDATE Emprunt SET archive = true WHERE id = :idEmprunt")
     void archiverEmprunt(@Param("idEmprunt")Long id);
+
 }
