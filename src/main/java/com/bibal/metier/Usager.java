@@ -17,7 +17,7 @@ public class Usager implements Serializable{
 	private String telephone;
 
 	@OneToMany
-	@JoinColumn(name = "idReservation")
+	@JoinColumn(name = "idUsager")
 	private List<Reservation> listeReservations;
 
 	@OneToMany
