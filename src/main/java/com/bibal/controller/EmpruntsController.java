@@ -45,7 +45,8 @@ public class EmpruntsController {
 	public String getFormCreationEmprunt(Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
-		List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplaires();
+		//List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplaires();
+		List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplairesNonEmpruntes();
 		model.addAttribute("usagers", usagers);
 		model.addAttribute("oeuvres", oeuvres);
 		model.addAttribute("exemplaires", exemplaires);

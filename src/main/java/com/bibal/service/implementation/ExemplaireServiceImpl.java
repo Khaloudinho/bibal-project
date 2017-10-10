@@ -27,6 +27,11 @@ public class ExemplaireServiceImpl implements ExemplaireService {
 	}
 
 	@Override
+	public List<Exemplaire> recupererTousLesExemplairesNonEmpruntes() {
+		return exemplaireRepository.recupererTousLesExemplairesNonEmpruntes();
+	}
+
+	@Override
 	public Exemplaire recupererExemplaireViaID(Long idExemplaire) {
 		return exemplaireRepository.findOne(idExemplaire);
 	}

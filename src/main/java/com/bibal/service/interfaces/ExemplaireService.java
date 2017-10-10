@@ -9,6 +9,10 @@ public interface ExemplaireService {
 
 	// GET
 	List<Exemplaire> recupererTousLesExemplaires();
+
+	//GET
+	List<Exemplaire> recupererTousLesExemplairesNonEmpruntes();
+
 	Exemplaire recupererExemplaireViaID(Long idExemplaire);
 
 	// POST
