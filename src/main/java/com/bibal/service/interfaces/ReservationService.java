@@ -12,7 +12,7 @@ public interface ReservationService {
 
 	void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre);
 	List<Reservation> recupererToutesLesReservations();
-	Reservation recupererReservationViaID(Long idUsager);
+	Reservation recupererReservationViaID(Long idReservation);
 	Reservation modifierReservation(Long idReservation, Date date, StatutReservation statut);
 
 }

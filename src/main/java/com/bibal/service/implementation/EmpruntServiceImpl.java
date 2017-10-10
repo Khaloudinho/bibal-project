@@ -27,7 +27,6 @@ public class EmpruntServiceImpl implements EmpruntService {
 		return empruntRepository.findAll();
 	}
 
-
 	@Override
 	public Emprunt recupererEmpruntViaID(Long idEmprunt) {
 		return empruntRepository.findOne(idEmprunt);

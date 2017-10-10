@@ -60,10 +60,10 @@ public class ReservationsController {
 	}
 
 	@GetMapping(value = "reservations/{idUsager}/edit")
-	public String getFormModifierReservation(@PathVariable Long idUsager, Model model) {
+	public String getFormModifierReservation(@PathVariable Long idReservation, Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
-		Reservation reservation = reservationService.recupererReservationViaID(idUsager);
+		Reservation reservation = reservationService.recupererReservationViaID(idReservation);
 		model.addAttribute("usagers", usagers);
 		model.addAttribute("oeuvres", oeuvres);
 		model.addAttribute("reservation", reservation);

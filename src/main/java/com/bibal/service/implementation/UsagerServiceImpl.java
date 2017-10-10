@@ -32,12 +32,6 @@ public class UsagerServiceImpl implements UsagerService {
 		return usagerRepository.recupererUsagersViaNom(nom);
 	}
 
-	/*@Override
-	public void activer(Long idUsager) {
-		Usager usager = recupererUsagerViaID(idUsager);
-		usager.setEtat(EtatUsager.Client.toString());
-	}*/
-
 	@Override
 	public void ajouterUsager(String nom, String prenom, String adresse, String mail, String telephone) {
 		Usager usager = new Usager(nom, prenom, adresse, mail, telephone);
