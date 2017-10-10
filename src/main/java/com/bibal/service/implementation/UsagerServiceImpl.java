@@ -3,7 +3,6 @@ package com.bibal.service.implementation;
 import com.bibal.dao.UsagerRepository;
 import com.bibal.metier.Usager;
 import com.bibal.service.interfaces.UsagerService;
-import com.bibal.util.EtatUsager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

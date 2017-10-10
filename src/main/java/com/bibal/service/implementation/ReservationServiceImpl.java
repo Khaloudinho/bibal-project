@@ -14,10 +14,7 @@ import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bibal.dao.ReservationRepository;
 import com.bibal.metier.Usager;
-import com.bibal.service.interfaces.UsagerService;
-import com.bibal.util.EtatUsager;
 
 @Service
 @Transactional

@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.bibal.util.EtatUsager;
 import com.bibal.util.StatutReservation;
 
 @Entity

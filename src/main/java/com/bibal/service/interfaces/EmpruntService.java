@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface EmpruntService {
 
-	//void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre, String statut);
+	// GET
 	List<Emprunt> recupererTousLesEmprunts();
-	void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire);
 	Emprunt recupererEmpruntViaID(Long idEmprunt);
-	//Reservation modifierReservation(Long idReservation, Date date, Usager usager, Oeuvre oeuvre, StatutReservation statut);
+
+	// POST
+	void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire);
 
 	// DELETE
 	void archiverEmprunt(Long idEmprunt);

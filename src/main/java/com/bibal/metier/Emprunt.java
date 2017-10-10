@@ -28,7 +28,7 @@ public class Emprunt implements Serializable{
 		this.date = date;
 		this.usager = usager;
 		this.exemplaire = exemplaire;
-		this.archive=false;
+		this.archive = false;
 	}
 
 	public Long getIdEmprunt() {

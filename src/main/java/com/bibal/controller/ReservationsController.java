@@ -59,7 +59,7 @@ public class ReservationsController {
 		return "redirect:/reservations";
 	}
 
-	@GetMapping(value = "reservations/{idUsager}/edit")
+	@GetMapping(value = "reservations/{idReservation}/edit")
 	public String getFormModifierReservation(@PathVariable Long idReservation, Model model) {
 		List<Usager> usagers = usagerService.recupererTousLesUsagers();
 		List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();

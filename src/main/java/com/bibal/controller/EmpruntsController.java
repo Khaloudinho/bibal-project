@@ -58,7 +58,6 @@ public class EmpruntsController {
 		Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
 
 		empruntService.ajouterEmprunt(date, usager, exemplaire);
-		//usagerService.ajouterEmprunt()
 		return "redirect:/emprunts";
 	}
 
