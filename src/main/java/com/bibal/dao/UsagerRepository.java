@@ -14,7 +14,4 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 public interface UsagerRepository extends JpaRepository<Usager, Long> {
-	
-	@Query("SELECT u FROM Usager u WHERE u.nom LIKE %:x%")
-	List<Usager> recupererUsagersViaNom(@Param("x")String nom);
 }

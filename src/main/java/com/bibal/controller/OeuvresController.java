@@ -29,13 +29,6 @@ public class OeuvresController {
         return "oeuvres";
     }
 
-    @GetMapping(value = "oeuvres/{titre}")
-    public String recupererOeuvresViaTitre(@PathVariable String titre, Model model) {
-        List<Oeuvre> oeuvres = oeuvreService.recupererOeuvresViaTitre(titre);
-        model.addAttribute("oeuvres", oeuvres);
-        return "oeuvres";
-    }
-
     @GetMapping(value = "oeuvres/create")
     public String getFormAjouterOeuvre() {
         return "formAjouterOeuvre";

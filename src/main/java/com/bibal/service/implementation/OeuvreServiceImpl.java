@@ -28,11 +28,6 @@ public class OeuvreServiceImpl implements OeuvreService {
 	}
 
 	@Override
-	public List<Oeuvre> recupererOeuvresViaTitre(String titre) {
-	    return oeuvreRepository.recupererOeuvresViaTitre(titre);
-	}
-
-	@Override
 	public void ajouterOeuvre(String titre, String auteur, TypeOeuvre type) {
 		Oeuvre oeuvre = new Oeuvre(titre, auteur, type);
 		oeuvreRepository.save(oeuvre);

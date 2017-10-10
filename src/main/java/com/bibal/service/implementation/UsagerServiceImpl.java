@@ -27,11 +27,6 @@ public class UsagerServiceImpl implements UsagerService {
 	}
 
 	@Override
-	public List<Usager> recupererUsagersViaNom(String nom) {
-		return usagerRepository.recupererUsagersViaNom(nom);
-	}
-
-	@Override
 	public void ajouterUsager(String nom, String prenom, String adresse, String mail, String telephone) {
 		Usager usager = new Usager(nom, prenom, adresse, mail, telephone);
 		usagerRepository.save(usager);
