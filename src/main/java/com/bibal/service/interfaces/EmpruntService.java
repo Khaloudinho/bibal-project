@@ -12,6 +12,9 @@ public interface EmpruntService {
 	List<Emprunt> recupererTousLesEmprunts();
 	Emprunt recupererEmpruntViaID(Long idEmprunt);
 
+	//GET
+	Emprunt recupererDernierEmprunt();
+
 	// POST
 	void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire);
 

@@ -33,6 +33,11 @@ public class EmpruntServiceImpl implements EmpruntService {
 	}
 
 	@Override
+	public Emprunt recupererDernierEmprunt() {
+		return empruntRepository.recupererDernierEmprunt();
+	}
+
+	@Override
 	public void ajouterEmprunt(Date date, Usager usager, Exemplaire exemplaire) {
 		Emprunt emprunt = new Emprunt(date, usager, exemplaire);
 		empruntRepository.save(emprunt);

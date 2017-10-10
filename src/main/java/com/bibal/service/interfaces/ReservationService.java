@@ -14,5 +14,5 @@ public interface ReservationService {
 	List<Reservation> recupererToutesLesReservations();
 	Reservation recupererReservationViaID(Long idReservation);
 	Reservation modifierReservation(Long idReservation, Date date, StatutReservation statut);
-
+	void archiverReservationSelonEmprunt(Long idEmprunt);
 }

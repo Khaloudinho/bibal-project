@@ -34,6 +34,9 @@ public class EmpruntsController {
 	@Autowired
 	private ExemplaireService exemplaireService;
 
+	@Autowired
+	private ReservationService reservationService;
+
 	@GetMapping("emprunts")
 	public String recupererTousLesEmprunts(Model model) {
 		List<Emprunt> emprunts = empruntService.recupererTousLesEmprunts();
@@ -59,12 +62,19 @@ public class EmpruntsController {
 		Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
 
 		empruntService.ajouterEmprunt(date, usager, exemplaire);
+
+		Emprunt dernierEmprunt = empruntService.recupererDernierEmprunt();
+
+		if(dernierEmprunt!=null)
+			reservationService.archiverReservationSelonEmprunt(dernierEmprunt.getIdEmprunt());
+
 		return "redirect:/emprunts";
 	}
 
 	@DeleteMapping(value = "emprunts/{idEmprunt}")
 	public String archiverEmprunt(@PathVariable Long idEmprunt) {
 		empruntService.archiverEmprunt(idEmprunt);
+		//reservationService.archiverReservationSelonEmprunt(idEmprunt);
 		return "redirect:/emprunts";
 	}
 

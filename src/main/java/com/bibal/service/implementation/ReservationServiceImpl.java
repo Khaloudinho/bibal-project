@@ -47,4 +47,10 @@ public class ReservationServiceImpl implements ReservationService {
 		return reservation;
 	}
 
+	@Override
+	public void archiverReservationSelonEmprunt(Long idEmprunt) {
+		Reservation reservation = reservationRepository.getReservationSelonEmprunt(idEmprunt);
+		this.modifierReservation(reservation.getIdReservation(), reservation.getDate(), StatutReservation.Archivée);
+	}
+
 }
