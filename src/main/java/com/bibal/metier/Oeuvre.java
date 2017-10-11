@@ -23,7 +23,7 @@ public class Oeuvre implements Serializable {
 	@JoinColumn(name = "idOeuvre")
 	private Set<Reservation> listeReservations;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idOeuvre")
 	private Set<Exemplaire> listeExemplaires;
 
