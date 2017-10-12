@@ -19,7 +19,7 @@ public class Exemplaire implements Serializable {
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idEmprunt")
 	private Emprunt emprunt;
 

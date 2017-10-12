@@ -19,11 +19,11 @@ public class Oeuvre implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TypeOeuvre type;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idOeuvre")
 	private Set<Reservation> listeReservations;
 
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idOeuvre")
 	private Set<Exemplaire> listeExemplaires;
 
