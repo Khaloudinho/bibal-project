@@ -16,11 +16,11 @@ public class Usager implements Serializable{
 	private String mail;
 	private String telephone;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idUsager")
 	private List<Reservation> listeReservations;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idUsager")
 	private List<Emprunt> listeEmprunts;
 

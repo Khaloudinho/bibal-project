@@ -15,6 +15,9 @@ import java.util.List;
 @ComponentScan
 public class IndexController {
 
+	/*
+	* Méthode chargeant la page d'accueil du projet "Bibal"
+	* */
 	@GetMapping(value = {"/accueil", "/"})
 	public String afficherPageAccueil(Model model) {
 		return "index";

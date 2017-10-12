@@ -48,7 +48,6 @@ test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
 
-*.properties
 mvnw.cmd
 mvnw
 work.json

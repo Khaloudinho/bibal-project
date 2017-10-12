@@ -19,7 +19,7 @@ public class Exemplaire implements Serializable {
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
 
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne
 	@JoinColumn(name = "idEmprunt")
 	private Emprunt emprunt;
 
@@ -30,7 +30,6 @@ public class Exemplaire implements Serializable {
 
 	public Exemplaire(Oeuvre oeuvre, EtatExemplaire etat) {
 		this.oeuvre = oeuvre;
-		//this.listeEmprunts = new HashSet<Emprunt>();
 		this.etat = etat;
 	}
 
