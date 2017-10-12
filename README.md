@@ -18,6 +18,7 @@ Bibal is a library manager web app
 - Open your IDE
 - Open the project through your IDE
 - Config the tomcat server to run it through the IDE otherwise you can install it on your laptop and launch it directly on the terminal
+- Run the project
 
 ## Used tools
 * **Maven** v3.3.9 - The tool which manages the dependencies of our project
