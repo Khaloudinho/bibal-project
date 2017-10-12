@@ -60,14 +60,10 @@ public class EmpruntsController {
 	public String ajouterEmprunt(Date date, Long idUsager, Long idExemplaire) {
 		Usager usager = usagerService.recupererUsagerViaID(idUsager);
 		Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
-
 		empruntService.ajouterEmprunt(date, usager, exemplaire);
-
 		Emprunt dernierEmprunt = empruntService.recupererDernierEmprunt();
-
-		if(dernierEmprunt!=null)
+		if (dernierEmprunt != null)
 			reservationService.archiverReservationSelonEmprunt(dernierEmprunt.getIdEmprunt());
-
 		return "redirect:/emprunts";
 	}
 
