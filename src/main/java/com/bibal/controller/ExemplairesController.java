@@ -27,6 +27,9 @@ public class ExemplairesController {
     @Autowired
     private OeuvreService oeuvreService;
 
+    /*
+    * On récupère tous les exemplaires via le service exemplaire que l'on affiche sur la page exemplaires.html
+    * */
     @GetMapping(value = "exemplaires")
     public String recupererTousLesExemplaires(Model model) {
         List<Exemplaire> exemplaires = exemplaireService.recupererTousLesExemplaires();
@@ -34,6 +37,10 @@ public class ExemplairesController {
         return "exemplaires";
     }
 
+    /*
+    * On récupère le formulaire d'ajout d'un exemplaire, on récupère les oeuvres afin que l'utiliser
+    * puisse créer l'exemplaire sur l'oeuvre de son choix et on retourne le formulaire formAjouterExemplaire.html
+    * */
     @GetMapping(value = "exemplaires/create")
     public String getFormAjouterExemplaire(Model model) {
         List<Oeuvre> oeuvres = oeuvreService.recupererToutesLesOeuvres();
@@ -41,6 +48,10 @@ public class ExemplairesController {
         return "formAjouterExemplaire";
     }
 
+    /*
+    * On récupère les informations de l'exemplaire que nous allons modifier via l'ID,
+    * puis on retourne le formulaire formModifierExemplaire.html avec les informations pré-remplies
+    * */
     @GetMapping(value = "exemplaires/{idExemplaire}/edit")
     public String getFormModifierExemplaire(@PathVariable Long idExemplaire, Model model) {
         Exemplaire exemplaire = exemplaireService.recupererExemplaireViaID(idExemplaire);
@@ -48,18 +59,28 @@ public class ExemplairesController {
         return "formModifierExemplaire";
     }
 
+    /*
+    * On ajoute un exemplaire en lui passant une oeuvre existante, et un état parmi l'énumération créée à cet effet
+    * */
     @PostMapping(value = "exemplaires")
     public String ajouterExemplaire(Long idOeuvre, EtatExemplaire etat) {
         exemplaireService.ajouterExemplaire(idOeuvre, etat);
         return "redirect:/exemplaires";
     }
 
+    /*
+    * On modifie uniquement l'état d'un exemplaire, donc on le récupère dans un premier temps via l'ID
+    * puis on modifie l'état de l'exemplaire
+    * */
     @PutMapping(value = "exemplaires/{idExemplaire}")
     public String modifierExemplaire(@PathVariable String idExemplaire, EtatExemplaire etat) {
         exemplaireService.modifierExemplaire(Long.valueOf(idExemplaire), etat);
         return "redirect:/exemplaires";
     }
 
+    /*
+    * On supprime l'exemplaire via cette fonction, pour ce faire on utilise son ID pour identifier l'exemplaire à supprimer
+    * */
     @DeleteMapping(value = "exemplaires/{idExemplaire}")
     public String supprimerExemplaire(@PathVariable Long idExemplaire) {
         exemplaireService.supprimerExemplaire(idExemplaire);
