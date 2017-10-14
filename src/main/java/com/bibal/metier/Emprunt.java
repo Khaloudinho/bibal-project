@@ -17,7 +17,7 @@ public class Emprunt implements Serializable{
 	private Exemplaire exemplaire;
 
 	@ManyToOne
-	@JoinColumn(name = "idUsager", nullable = false)
+	@JoinColumn(name = "idUsager")
 	private Usager usager;
 
 	private boolean archive;

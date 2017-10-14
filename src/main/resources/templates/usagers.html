@@ -11,6 +11,7 @@
 	<section layout:fragment="custom-content">
 		<div class="container">
 			    <p class="title">Gestion des usagers</p>
+				<p style="color: red">Attention : la suppresion d'un usager implique la suppression de ses réservations et de ses emprunts !</p>
 			<form th:action="@{/usagers/create}" th:method="get">
 				<div class="field" style="margin-bottom: 2.4%">
 					<div class="control">

@@ -12,6 +12,7 @@
 <section layout:fragment="custom-content">
     <div class="container">
         <p class="title">Gestion des oeuvres</p>
+        <p title="has-text-danger"> La suppression n'a lieu que si aucun exemplaire lié à l'oeuvre n'est présent. </p>
         <form th:action="@{/oeuvres/create}" th:method="get">
             <div class="field" style="margin-bottom: 2.5%">
                 <div class="control">
