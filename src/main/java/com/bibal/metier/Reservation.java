@@ -1,13 +1,15 @@
 package com.bibal.metier;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.List;
-
 import javax.persistence.*;
-
 import com.bibal.util.StatutReservation;
 
+import java.sql.Date;
+
+/**
+ * classe metier usager
+ * les annotations permettent le mappage avec la base de donnees par le biais d'hibernate
+ */
 @Entity
 public class Reservation implements Serializable {
 

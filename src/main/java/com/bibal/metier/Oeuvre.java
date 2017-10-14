@@ -1,12 +1,18 @@
 package com.bibal.metier;
 
-import com.bibal.util.TypeOeuvre;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 import java.util.HashSet;
 import java.util.Set;
 
+import com.bibal.util.TypeOeuvre;
+
+/**
+ * classe metier Oeuvre
+ * les annotations permettent le mappage avec la base de donnees par le biais d'hibernate
+ */
 @Entity
 public class Oeuvre implements Serializable {
 

@@ -1,14 +1,5 @@
 package com.bibal.controller;
 
-import java.sql.Date;
-import java.util.List;
-import java.util.Set;
-
-import com.bibal.metier.Oeuvre;
-import com.bibal.metier.Usager;
-import com.bibal.service.interfaces.OeuvreService;
-import com.bibal.service.interfaces.UsagerService;
-import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,8 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.bibal.metier.Reservation;
+import java.sql.Date;
+import java.util.List;
+
 import com.bibal.service.interfaces.ReservationService;
+import com.bibal.service.interfaces.OeuvreService;
+import com.bibal.service.interfaces.UsagerService;
+
+import com.bibal.util.StatutReservation;
+import com.bibal.metier.Oeuvre;
+import com.bibal.metier.Usager;
+import com.bibal.metier.Reservation;
 
 @Configuration
 @Controller

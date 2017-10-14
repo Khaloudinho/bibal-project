@@ -1,12 +1,14 @@
 package com.bibal.metier;
 
-import com.bibal.util.EtatExemplaire;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
+import com.bibal.util.EtatExemplaire;
+
+/**
+ * classe metier Exemplaire
+ * les annotations permettent le mappage avec la base de donnees par le biais d'hibernate
+ */
 @Entity
 public class Exemplaire implements Serializable {
 

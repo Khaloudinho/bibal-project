@@ -1,19 +1,18 @@
 package com.bibal.service.implementation;
 
-import java.sql.Date;
-import java.util.List;
-import java.util.Set;
-
-import javax.transaction.Transactional;
-
-import com.bibal.dao.ReservationRepository;
-import com.bibal.metier.Oeuvre;
-import com.bibal.metier.Reservation;
-import com.bibal.service.interfaces.ReservationService;
-import com.bibal.util.StatutReservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import javax.transaction.Transactional;
 
+import java.sql.Date;
+import java.util.List;
+
+import com.bibal.service.interfaces.ReservationService;
+import com.bibal.dao.ReservationRepository;
+
+import com.bibal.util.StatutReservation;
+import com.bibal.metier.Oeuvre;
+import com.bibal.metier.Reservation;
 import com.bibal.metier.Usager;
 
 @Service
@@ -50,6 +49,7 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public void archiverReservationSelonEmprunt(Long idEmprunt) {
 		Reservation reservation = reservationRepository.getReservationSelonEmprunt(idEmprunt);
+		//Permet de modifier le statut de la resevation automatiquement lors de l'emprunt
 		if(reservation!=null)
 			this.modifierReservation(reservation.getIdReservation(), reservation.getDate(), StatutReservation.Annulée);
 	}

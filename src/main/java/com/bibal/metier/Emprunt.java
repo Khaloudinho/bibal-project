@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
+/**
+ * classe metier EMprunt
+ * les annotations permettent le mappage avec la base de donnees par le biais d'hibernate
+ */
 @Entity
 public class Emprunt implements Serializable{
 

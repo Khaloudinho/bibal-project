@@ -1,20 +1,18 @@
 package com.bibal.service.implementation;
 
-import com.bibal.dao.EmpruntRepository;
-import com.bibal.metier.Exemplaire;
-import com.bibal.metier.Oeuvre;
-import com.bibal.metier.Emprunt;
-import com.bibal.metier.Usager;
-import com.bibal.service.interfaces.EmpruntService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
+import com.bibal.service.interfaces.EmpruntService;
+import com.bibal.dao.EmpruntRepository;
+
+import com.bibal.metier.Exemplaire;
+import com.bibal.metier.Emprunt;
+import com.bibal.metier.Usager;
 @Service
 @Transactional
 public class EmpruntServiceImpl implements EmpruntService {
@@ -43,6 +41,7 @@ public class EmpruntServiceImpl implements EmpruntService {
 		empruntRepository.save(emprunt);
 	}
 
+	//L'emprunt est seulement arhive et non supprimme
 	@Override
 	public void archiverEmprunt(Long idEmprunt){
 		empruntRepository.archiverEmprunt(idEmprunt);

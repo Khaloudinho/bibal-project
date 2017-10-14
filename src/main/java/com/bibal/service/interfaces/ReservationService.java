@@ -9,10 +9,16 @@ import com.bibal.metier.Usager;
 import com.bibal.util.StatutReservation;
 
 public interface ReservationService {
-
+	//POST
 	void ajouterReservation(Date date, Usager usager, Oeuvre oeuvre);
+
+	//DELETE
+	void archiverReservationSelonEmprunt(Long idEmprunt);
+
+	//PUT
+	Reservation modifierReservation(Long idReservation, Date date, StatutReservation statut);
+
+	//GET
 	List<Reservation> recupererToutesLesReservations();
 	Reservation recupererReservationViaID(Long idReservation);
-	Reservation modifierReservation(Long idReservation, Date date, StatutReservation statut);
-	void archiverReservationSelonEmprunt(Long idEmprunt);
 }

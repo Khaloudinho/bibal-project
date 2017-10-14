@@ -1,15 +1,16 @@
 package com.bibal.dao;
 
-import com.bibal.metier.Emprunt;
-import com.bibal.metier.Exemplaire;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import javax.transaction.Transactional;
-import java.util.List;
 
+import com.bibal.metier.Emprunt;
+
+/**
+ * Repository utilise pour les requetes particulieres relative a l'emprunt
+ */
 public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 
     @Transactional

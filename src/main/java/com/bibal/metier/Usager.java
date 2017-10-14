@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * classe metier Usager
+ * les annotations permettent le mappage avec la base de donnees par le biais d'hibernate
+ */
 @Entity
 public class Usager implements Serializable{
 	
