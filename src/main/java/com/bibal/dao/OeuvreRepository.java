@@ -13,4 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface OeuvreRepository extends JpaRepository<Oeuvre, Long> {
+
+    @Query(value = "SELECT * FROM oeuvre where id_oeuvre IN (SELECT id_oeuvre FROM exemplaire) AND id_oeuvre= :idOeuvre ", nativeQuery = true)
+    Oeuvre recupererOeuvreSiExemplaires(@Param("idOeuvre") Long id);
 }

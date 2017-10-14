@@ -35,7 +35,13 @@ public class OeuvreServiceImpl implements OeuvreService {
 
 	@Override
 	public void supprimerOeuvre(Long idOeuvre) {
-	    oeuvreRepository.delete(idOeuvre);
+	    if (this.recupererOeuvreSiExemplaires(idOeuvre)==null)
+			oeuvreRepository.delete(idOeuvre);
+	}
+
+	@Override
+	public Oeuvre recupererOeuvreSiExemplaires(Long idOeuvre) {
+		return oeuvreRepository.recupererOeuvreSiExemplaires(idOeuvre);
 	}
 
 	@Override

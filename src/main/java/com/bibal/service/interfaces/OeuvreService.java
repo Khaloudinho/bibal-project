@@ -20,4 +20,7 @@ public interface OeuvreService {
 	// DELETE
 	void supprimerOeuvre(Long idOeuvre);
 
+	// SECURISE LE DELETE
+	Oeuvre recupererOeuvreSiExemplaires(Long idOeuvre);
+
 }
