@@ -15,6 +15,7 @@
 - Config the tomcat server through the IDE and run it
 - Otherwise you can install it on your laptop and launch it directly on the terminal
 - Run the Java project in parallel 
+- Don't forgot to change Mysql credentials in application.properties 
 
 ## Used tools
 - **Java** v8
